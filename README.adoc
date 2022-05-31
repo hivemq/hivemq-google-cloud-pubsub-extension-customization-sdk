@@ -1,0 +1,41 @@
+= HiveMQ PubSub Extension Customization SDK
+
+image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-pubsub-extension-customization-sdk"]
+image:https://javadoc.io/badge2/com.hivemq/hivemq-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-pubsub-extension-customization-sdk]
+
+== Features
+
+The HiveMQ PubSub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-google-pubsub-extension/[HiveMQ Enterprise Extension for PubSub].
+
+By implementing a customization for the HiveMQ Enterprise Extension for PubSub it is possible to:
+
+* Transform a MQTT PUBLISH into one or multiple PubSub messages.
+* Transform a PubSub messages into one or multiple MQTT PUBLISHES.
+
+== Using the SDK
+
+The HiveMQ PubSub Extension Customization SDK is available in Maven central, so no special configuration is needed.
+To use the SDK, add the following dependency to your Maven project:
+
+[source,xml]
+----
+<dependency>
+    <groupId>com.hivemq</groupId>
+    <artifactId>hivemq-pubsub-extension-customization-sdk</artifactId>
+    <version>4.9.0</version>
+</dependency>
+----
+
+== License
+
+The HiveMQ PubSub Extension SDK is licensed under the `APACHE LICENSE, VERSION 2.0`.
+A copy of the license can be found link:LICENSE[here].
+
+== Setup
+
+To be able to use the latest changes of the `hivemq-extension-sdk` please check out the https://github.com/hivemq/hivemq-extension-sdk repository in the same folder as the current project.
+(See line `includeBuild("../hivemq-extension-sdk")` in `settings.gradle.kts`).
+
+NOTE: You can also change the path in the `settings.gradle.kts` to the path of your `hivemq-extension-sdk`.
+
+Otherwise, it will not be possible to publish develop snapshots to your local repository.
