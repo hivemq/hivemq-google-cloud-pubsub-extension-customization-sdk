@@ -19,14 +19,11 @@ package com.hivemq.extensions.pubsub.api.transformers.pubsubtomqtt;
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.PubSubConnection;
-import com.hivemq.extensions.pubsub.api.model.PubSubMessage;
+import com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage;
 
 /**
  * The input parameter of the {@link PubSubToMqttTransformer}. It contains the information of the to be transformed
- * {@link PubSubMessage}.
- * <p>
- * The MqttToKPubSubInput allows access to the {@link PubSubConnection}.
+ * {@link InboundPubSubMessage}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -37,14 +34,8 @@ import com.hivemq.extensions.pubsub.api.model.PubSubMessage;
 public interface PubSubToMqttInput {
 
     /**
-     * @return the {@link PubSubMessage} that triggered this transformer call.
+     * @return the {@link InboundPubSubMessage} that triggered this transformer call.
      * @since 4.9.0
      */
-    @NotNull PubSubMessage getPubSubMessage();
-
-    /**
-     * @return the {@link PubSubConnection} the transformer is associated with.
-     * @since 4.9.0
-     */
-    @NotNull PubSubConnection getPubSubConnection();
+    @NotNull InboundPubSubMessage getInboundPubSubMessage();
 }

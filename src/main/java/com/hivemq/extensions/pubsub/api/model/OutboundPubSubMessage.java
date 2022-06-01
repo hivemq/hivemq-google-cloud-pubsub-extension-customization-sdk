@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub;
+package com.hivemq.extensions.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extension.sdk.api.packets.publish.PublishPacket;
 
 /**
- * The input parameter of the {@link MqttToPubSubTransformer}. It contains the information of the to be transformed
- * {@link PublishPacket}.
+ * Represents an outbound PubSub message, that should be written to PubSub.
+ * <p>
+ * The internal state of this interface is completely immutable.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -31,11 +30,4 @@ import com.hivemq.extension.sdk.api.packets.publish.PublishPacket;
  */
 @Immutable
 @DoNotImplement
-public interface MqttToPubSubInput {
-
-    /**
-     * @return the {@link PublishPacket} that triggered this transformer call.
-     * @since 4.9.0
-     */
-    @NotNull PublishPacket getPublishPacket();
-}
+public interface OutboundPubSubMessage extends PubSubMessage {}

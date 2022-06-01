@@ -9,21 +9,37 @@ The HiveMQ PubSub Extension Customization SDK allows the programmatic interactio
 
 By implementing a customization for the HiveMQ Enterprise Extension for PubSub it is possible to:
 
-* Transform a MQTT PUBLISH into one or multiple PubSub messages.
-* Transform a PubSub messages into one or multiple MQTT PUBLISHES.
+* Transform a MQTT PUBLISH into multiple or none PubSub messages.
+* Transform a PubSub messages into multiple or none MQTT PUBLISHES.
 
 == Using the SDK
 
 The HiveMQ PubSub Extension Customization SDK is available in Maven central, so no special configuration is needed.
-To use the SDK, add the following dependency to your Maven project:
+To use the SDK, add the following dependency to your project:
 
+Maven
 [source,xml]
+
 ----
 <dependency>
     <groupId>com.hivemq</groupId>
     <artifactId>hivemq-pubsub-extension-customization-sdk</artifactId>
     <version>4.9.0</version>
 </dependency>
+----
+
+Gradle (Groovy)
+[source,groovy]
+
+----
+implementation('com.hivemq:hivemq-pubsub-extension-customization-sdk:4.9.0')
+----
+
+Gradle (Kotlin)
+[source,kotlin]
+
+----
+implementation("com.hivemq:hivemq-pubsub-extension-customization-sdk:4.9.0")
 ----
 
 == License

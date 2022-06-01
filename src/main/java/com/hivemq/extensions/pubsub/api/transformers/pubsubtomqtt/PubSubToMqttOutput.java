@@ -20,7 +20,6 @@ import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.services.builder.PublishBuilder;
 import com.hivemq.extension.sdk.api.services.publish.Publish;
-import com.hivemq.extensions.pubsub.api.model.PubSubMessage;
 
 import java.util.List;
 
@@ -46,11 +45,12 @@ public interface PubSubToMqttOutput {
     /**
      * Sets the {@link Publish}es, that will be published by HiveMQ after the
      * {@link PubSubToMqttTransformer#transformPubSubToMqtt(PubSubToMqttInput, PubSubToMqttOutput)} call returns. The
-     * HiveMQ Enterprise Extension for PubSub will publish the publishes in the order provided by the
-     * {@code publishes} argument.
+     * HiveMQ Enterprise Extension for PubSub will publish the publishes in the order provided by the {@code publishes}
+     * argument.
      * <p>
      * If desired, the same publish can occupy multiple places in the {@code publishes} list. When no publish shall be
-     * published by HiveMQ for a {@link PubSubMessage}, call this method with an empty list.
+     * published by HiveMQ for a {@link com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage}, call this method
+     * with an empty list.
      * <p>
      * Use the {@link #newPublishBuilder() PublishBuilder} to create new publishes as desired.
      * <p>

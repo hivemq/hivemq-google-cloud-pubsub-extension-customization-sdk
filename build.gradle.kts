@@ -34,25 +34,21 @@ metadata {
         apache2()
     }
     developers {
-        register("cschaebe") {
-            fullName.set("Christoph Schaebel")
-            email.set("christoph.schaebel@hivemq.com")
+        register("hurtadosanti") {
+            fullName.set("Santiago Hurtado")
+            email.set("santiago.hurtado@hivemq.com")
         }
-        register("lbrandl") {
-            fullName.set("Lukas Brandl")
-            email.set("lukas.brandl@hivemq.com")
+        register("Donnerbart") {
+            fullName.set("David Sondermann")
+            email.set("david.sondermann@hivemq.com")
         }
-        register("flimpoeck") {
-            fullName.set("Florian Limpoeck")
+        register("YannickWeber") {
+            fullName.set("Yannick Weber")
+            email.set("yannick.weber@hivemq.com")
+        }
+        register("Florian-Limpoeck") {
+            fullName.set("Florian Limpöck")
             email.set("florian.limpoeck@hivemq.com")
-        }
-        register("sauroter") {
-            fullName.set("Georg Held")
-            email.set("georg.held@hivemq.com")
-        }
-        register("SgtSilvio") {
-            fullName.set("Silvio Giebl")
-            email.set("silvio.giebl@hivemq.com")
         }
         register("mario-schwede-hivemq") {
             fullName.set("Mario Schwede")
@@ -105,9 +101,9 @@ java {
 
 tasks.withType<Jar>().configureEach {
     manifest.attributes(
-        "Implementation-Title" to project.name,
-        "Implementation-Vendor" to metadata.organization.get().name.get(),
-        "Implementation-Version" to project.version
+            "Implementation-Title" to project.name,
+            "Implementation-Vendor" to metadata.organization.get().name.get(),
+            "Implementation-Version" to project.version
     )
 }
 

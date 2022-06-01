@@ -18,8 +18,6 @@ package com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.PubSubConnection;
 import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
 
 /**
@@ -31,11 +29,4 @@ import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
  */
 @Immutable
 @DoNotImplement
-public interface MqttToPubSubInitInput extends TransformerInitInput {
-
-    /**
-     * @return the {@link PubSubConnection} this transformer is associated with.
-     * @since 4.9.0
-     */
-    @NotNull PubSubConnection getPubSubConnection();
-}
+public interface MqttToPubSubInitInput extends TransformerInitInput {}

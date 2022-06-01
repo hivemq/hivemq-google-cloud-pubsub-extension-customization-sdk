@@ -19,7 +19,6 @@ package com.hivemq.extensions.pubsub.api.transformers;
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub.MqttToPubSubInitInput;
 
 /**
  * This is the base interface for all HiveMQ Enterprise Extension for PubSub transformer.
@@ -33,10 +32,12 @@ import com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub.MqttToPubSubIn
 public interface Transformer<I extends TransformerInitInput> {
 
     /**
-     * Use the init method to set up static runtime context for the execution of your transformer.
+     * Use the init method to initialize the transformer.
      *
-     * @param input see the specific input e.g. {@link MqttToPubSubInitInput MqttToPubSubInitInput}.
+     * @param transformerInitInput see the specific transformerInitInput e.g.
+     *                             {@link
+     *                             com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub.MqttToPubSubInitInput}.
      * @since 4.9.0
      */
-    default void init(final @NotNull I input) {}
+    default void init(final @NotNull I transformerInitInput) {}
 }

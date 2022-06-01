@@ -21,6 +21,7 @@ import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extensions.pubsub.api.model.CustomProperties;
+import com.hivemq.extensions.pubsub.api.model.PubSubConnection;
 
 /**
  * A marker interface for the input object of the {@link Transformer#init(TransformerInitInput)} method.
@@ -42,5 +43,15 @@ public interface TransformerInitInput {
      */
     @NotNull MetricRegistry getMetricRegistry();
 
+    /**
+     * @return the {@link CustomProperties} this transformer is associated with.
+     * @since 4.9.0
+     */
     @NotNull CustomProperties getCustomProperties();
+
+    /**
+     * @return the {@link PubSubConnection} this transformer is associated with.
+     * @since 4.9.0
+     */
+    @NotNull PubSubConnection getPubSubConnection();
 }

@@ -17,14 +17,13 @@
 package com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub;
 
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.PubSubConnection;
-import com.hivemq.extensions.pubsub.api.model.PubSubMessage;
 import com.hivemq.extensions.pubsub.api.transformers.Transformer;
 
 import java.util.List;
 
 /**
- * Implement this transformer for the programmatic creation of {@link PubSubMessage}s from
+ * Implement this transformer for the programmatic creation of
+ * {@link com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage}s from
  * {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}s.
  * <p>
  * Your implementation of the MqttToPubSubTransformer must be placed in a java archive (.jar) together with all its
@@ -42,14 +41,16 @@ public interface MqttToPubSubTransformer extends Transformer<MqttToPubSubInitInp
     /**
      * This callback is executed for every MQTT PUBLISH that arrives at your HiveMQ cluster matching the in the
      * {@code <mqtt-to-pubsub-transformer>} tag configured {@code <mqtt-pubsub-filters>}. It allows the publication of
-     * any number of {@link PubSubMessage}s via the {@link MqttToPubSubOutput} object.
+     * any number of {@link com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage}s via the
+     * {@link MqttToPubSubOutput} object.
      *
-     * @param input  the {@link MqttToPubSubInput} contains the triggering
-     *               {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket} and the {@link PubSubConnection}
-     *               information.
-     * @param output pass the list of new {@link PubSubMessage}s to the
-     *               {@link MqttToPubSubOutput#setPubSubMessages(List)} method.
+     * @param mqttToPubSubInput  the {@link MqttToPubSubInput} contains the triggering
+     *                           {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket} information.
+     * @param mqttToPubSubOutput pass the list of new
+     *                           {@link com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage}s to the
+     *                           {@link MqttToPubSubOutput#setOutboundPubSubMessages(List)} method.
      * @since 4.9.0
      */
-    void transformMqttToPubSub(@NotNull MqttToPubSubInput input, @NotNull MqttToPubSubOutput output);
+    void transformMqttToPubSub(
+            @NotNull MqttToPubSubInput mqttToPubSubInput, @NotNull MqttToPubSubOutput mqttToPubSubOutput);
 }

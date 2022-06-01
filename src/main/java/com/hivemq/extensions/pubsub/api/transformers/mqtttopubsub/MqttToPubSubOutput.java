@@ -18,17 +18,18 @@ package com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.builders.PubSubMessageBuilder;
-import com.hivemq.extensions.pubsub.api.model.PubSubMessage;
+import com.hivemq.extensions.pubsub.api.builders.OutboundPubSubMessageBuilder;
+import com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage;
 
 import java.util.List;
 
 /**
- * The output parameter of the {@link MqttToPubSubTransformer}. It allows access to the {@link PubSubMessageBuilder}.
+ * The output parameter of the {@link MqttToPubSubTransformer}. It allows access to the
+ * {@link OutboundPubSubMessageBuilder}.
  * <p>
  * After the {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} method returns
- * the {@link PubSubMessage}s given to this output will be published to PubSub by the HiveMQ Enterprise Extension for
- * PubSub.
+ * the {@link OutboundPubSubMessage}s given to this output will be published to PubSub by the HiveMQ Enterprise
+ * Extension for PubSub.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -38,33 +39,33 @@ import java.util.List;
 public interface MqttToPubSubOutput {
 
     /**
-     * Create a new {@link PubSubMessageBuilder}. One {@link PubSubMessageBuilder} can be used to build multiple PubSub
-     * messages.
+     * Create a new {@link OutboundPubSubMessageBuilder}. One {@link OutboundPubSubMessageBuilder} can be used to build
+     * multiple PubSub messages.
      *
-     * @return an empty instance of the {@link PubSubMessageBuilder}.
+     * @return an empty instance of the {@link OutboundPubSubMessageBuilder}.
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder newPubSubMessageBuilder();
+    @NotNull OutboundPubSubMessageBuilder newOutboundPubSubMessageBuilder();
 
     /**
-     * Sets the {@link PubSubMessage}s, that will be pushed to PubSub after the
-     * {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} call returns.
-     *  The HiveMQ Enterprise Extension for PubSub will publish the messages in the order provided by the
-     *  {@code pubSubMessages} argument when PubSub ordering is enabled.
+     * Sets the {@link OutboundPubSubMessage}s, that will be pushed to PubSub after the
+     * {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} call returns. The
+     * HiveMQ Enterprise Extension for PubSub will publish the messages in the order provided by the
+     * {@code outboundPubSubMessages} argument when PubSub ordering is enabled.
      * <p>
-     * If desired, the same message can occupy multiple places in the {@code pubSubMessages} list. When no message shall
-     * be pushed to PubSub for a {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}, call this method
-     * with an empty list.
+     * If desired, the same message can occupy multiple places in the {@code outboundPubSubMessages} list. When no
+     * message shall be pushed to PubSub for a {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}, call
+     * this method with an empty list.
      * <p>
-     * Use the {@link PubSubMessageBuilder} to create new messages as desired.
+     * Use the {@link OutboundPubSubMessageBuilder} to create new messages as desired.
      * <p>
      * Each additional call of this method will overwrite the previous one.
      *
-     * @param pubSubMessages a list of to be published {@link PubSubMessage}s.
-     * @throws NullPointerException     if {@code pubSubMessages} or any element of it is null.
-     * @throws IllegalArgumentException if any element in {@code pubSubMessages} was not created via a
-     *                                  {@link PubSubMessageBuilder}.
+     * @param outboundPubSubMessages a list of to be published {@link OutboundPubSubMessage}s.
+     * @throws NullPointerException     if {@code outboundPubSubMessages} or any element of it is null.
+     * @throws IllegalArgumentException if any element in {@code outboundPubSubMessages} was not created via a
+     *                                  {@link OutboundPubSubMessageBuilder}.
      * @since 4.9.0
      */
-    void setPubSubMessages(@NotNull List<@NotNull PubSubMessage> pubSubMessages);
+    void setOutboundPubSubMessages(@NotNull List<@NotNull OutboundPubSubMessage> outboundPubSubMessages);
 }

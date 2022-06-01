@@ -18,17 +18,17 @@ package com.hivemq.extensions.pubsub.api.builders;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.PubSubMessage;
+import com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Map;
 
 /**
- * The {@code PubSubMessageBuilder} enables the creation of {@link PubSubMessage}s via its fluent API.
+ * The {@code PubSubMessageBuilder} enables the creation of {@link OutboundPubSubMessage}s via its fluent API.
  * <p>
- * All data in a {@link PubSubMessage} except the {@code topicName} is optional. Ensure that you set a topic via the
- * {@link PubSubMessageBuilder#topicName(String)} method before you call {@link PubSubMessageBuilder#build()}.
+ * Make sure that {@code topicName} together with at least {@code data} or one {@code attribute} is set before calling
+ * {@link OutboundPubSubMessageBuilder#build()}.
  * <p>
  * The internal state of this interface can only be changed via its methods. All arguments, that have mutable data
  * types, are deep copied before the setting method returns.
@@ -38,19 +38,19 @@ import java.util.Map;
  * @since 4.9.0
  */
 @DoNotImplement
-public interface PubSubMessageBuilder {
+public interface OutboundPubSubMessageBuilder {
 
     /**
      * Set the topicName of the PubSub message.
      * <p>
-     * This is required to successfully build a {@link PubSubMessage}.
+     * This is required to successfully build a {@link OutboundPubSubMessage}.
      *
      * @param topicName the name of the topicName.
      * @return this builder
      * @throws IllegalArgumentException if topicName is not a valid name for a PubSub topicName
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder topicName(@NotNull String topicName);
+    @NotNull OutboundPubSubMessageBuilder topicName(@NotNull String topicName);
 
     /**
      * Set the data of the PubSub message.
@@ -59,7 +59,7 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder data(@NotNull ByteBuffer data);
+    @NotNull OutboundPubSubMessageBuilder data(@NotNull ByteBuffer data);
 
     /**
      * Set the data of the PubSub message.
@@ -68,7 +68,7 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder data(byte @NotNull [] data);
+    @NotNull OutboundPubSubMessageBuilder data(byte @NotNull [] data);
 
     /**
      * Set the data of the PubSub message.
@@ -77,7 +77,7 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder data(@NotNull String data);
+    @NotNull OutboundPubSubMessageBuilder data(@NotNull String data);
 
     /**
      * Set the data of the PubSub message.
@@ -87,7 +87,7 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder data(@NotNull String data, @NotNull Charset charset);
+    @NotNull OutboundPubSubMessageBuilder data(@NotNull String data, @NotNull Charset charset);
 
     /**
      * Add an attribute to the PubSub message.
@@ -97,7 +97,7 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder attribute(@NotNull String key, @NotNull String value);
+    @NotNull OutboundPubSubMessageBuilder attribute(@NotNull String key, @NotNull String value);
 
     /**
      * Add attributes to the PubSub message.
@@ -106,7 +106,7 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder attributes(@NotNull Map<String, String> attributes);
+    @NotNull OutboundPubSubMessageBuilder attributes(@NotNull Map<String, String> attributes);
 
     /**
      * Set the orderingKey of the PubSub message.
@@ -115,14 +115,16 @@ public interface PubSubMessageBuilder {
      * @return this builder
      * @since 4.9.0
      */
-    @NotNull PubSubMessageBuilder orderingKey(@NotNull String orderingKey);
+    @NotNull OutboundPubSubMessageBuilder orderingKey(@NotNull String orderingKey);
 
     /**
-     * Create a new {@link PubSubMessage} from the current state of this builder. The builder can be reused afterwards.
+     * Create a new {@link OutboundPubSubMessage} from the current state of this builder. The builder can be reused
+     * afterwards.
      *
-     * @return a new {@link PubSubMessage} containing a snapshot of the current state of this builder.
-     * @throws NullPointerException if the {@code topicName} was not set.
+     * @return a new {@link OutboundPubSubMessage} containing a snapshot of the current state of this builder.
+     * @throws IllegalStateException if the {@code topicName} was not set.
+     * @throws IllegalStateException if data was not set and attributes is empty.
      * @since 4.9.0
      */
-    @NotNull PubSubMessage build();
+    @NotNull OutboundPubSubMessage build();
 }

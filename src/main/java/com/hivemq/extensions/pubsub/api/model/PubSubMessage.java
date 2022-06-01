@@ -24,7 +24,7 @@ import java.nio.ByteBuffer;
 import java.util.Optional;
 
 /**
- * Represents a PubSub message, that was either read from or should be written to PubSub.
+ * Represents a PubSub message.
  * <p>
  * The internal state of this interface is completely immutable. All returned {@link ByteBuffer}s are read only and a
  * deep copy of any {@code byte[]} is made for every method call returning one.
@@ -60,18 +60,6 @@ public interface PubSubMessage {
      * @since 4.9.0
      */
     @NotNull Optional<byte[]> getDataAsByteArray();
-
-    /**
-     * @return an {@link Optional} of the messageId of this message.
-     * @since 4.9.0
-     */
-    @NotNull Optional<String> getMessageId();
-
-    /**
-     * @return an {@link Optional} of the publishTime of this message.
-     * @since 4.9.0
-     */
-    @NotNull Optional<Timestamp> getPublishTime();
 
     /**
      * @return an {@link Optional} of the orderingKey of this message.
