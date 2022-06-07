@@ -39,9 +39,9 @@ import java.util.List;
 public interface MqttToPubSubTransformer extends Transformer<MqttToPubSubInitInput> {
 
     /**
-     * This callback is executed for every MQTT PUBLISH that arrives at your HiveMQ cluster matching the in the
-     * {@code <mqtt-to-pubsub-transformer>} tag configured {@code <mqtt-pubsub-filters>}. It allows the publication of
-     * any number of {@link com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage}s via the
+     * This callback is executed for every MQTT PUBLISH that arrives at your HiveMQ cluster matching the
+     * {@code <mqtt-to-pubsub-transformer>} tag configured in the {@code <mqtt-pubsub-filters>}. It allows the
+     * publication of any number of {@link com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage}s via the
      * {@link MqttToPubSubOutput} object.
      *
      * @param mqttToPubSubInput  the {@link MqttToPubSubInput} contains the triggering

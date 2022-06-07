@@ -22,8 +22,8 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage;
 
 /**
- * The input parameter of the {@link PubSubToMqttTransformer}. It contains the information of the to be transformed
- * {@link InboundPubSubMessage}.
+ * The input parameter of the {@link PubSubToMqttTransformer}. It contains the information of
+ * {@link InboundPubSubMessage} the to be transformed.
  *
  * @author Florian Limpöck
  * @author Mario Schwede

@@ -22,8 +22,8 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.packets.publish.PublishPacket;
 
 /**
- * The input parameter of the {@link MqttToPubSubTransformer}. It contains the information of the to be transformed
- * {@link PublishPacket}.
+ * The input parameter of the {@link MqttToPubSubTransformer}. It contains the information of the {@link PublishPacket}
+ * to be transformed.
  *
  * @author Florian Limpöck
  * @author Mario Schwede

@@ -41,13 +41,31 @@ import java.util.Map;
 public interface OutboundPubSubMessageBuilder {
 
     /**
-     * Set the topicName of the PubSub message.
+     * Set the {@code topicName} of the PubSub message. This is required to successfully build a
+     * {@link OutboundPubSubMessage}.
      * <p>
-     * This is required to successfully build a {@link OutboundPubSubMessage}.
+     * Must conform to the following guidelines:
+     * <ul>
+     *     <li>Not begin with the string {@code goog}</li>
+     *     <li>Start with a letter</li>
+     *     <li>Contain between 3 and 255 characters</li>
+     *     <li>Contain only the following characters<ul>
+     *          <li>Letters [A-Za-z]</li>
+     *          <li>numbers [0-9]</li>
+     *          <li>dashes -</li>
+     *          <li>underscores _</li>
+     *          <li>periods .</li>
+     *          <li>tildes ~</li>
+     *          <li>plus signs +</li>
+     *          <li>percent signs %</li>
+     *      </ul></li>
+     * </ul>
+     * <p>
      *
-     * @param topicName the name of the topicName.
+     * @param topicName the name of the topic.
      * @return this builder
-     * @throws IllegalArgumentException if topicName is not a valid name for a PubSub topicName
+     * @throws NullPointerException     if {@code topicName} is null
+     * @throws IllegalArgumentException if {@code topicName} is not conform with the guidelines
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder topicName(@NotNull String topicName);
@@ -57,6 +75,8 @@ public interface OutboundPubSubMessageBuilder {
      *
      * @param data the value of the data.
      * @return this builder
+     * @throws NullPointerException     if {@code data} is null
+     * @throws IllegalArgumentException if {@code data} exceeds the max size of 10,000,000 bytes (10MB)
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder data(@NotNull ByteBuffer data);
@@ -66,6 +86,8 @@ public interface OutboundPubSubMessageBuilder {
      *
      * @param data the value of the data.
      * @return this builder
+     * @throws NullPointerException     if {@code data} is null
+     * @throws IllegalArgumentException if {@code data} exceeds the max size of 10,000,000 bytes (10MB)
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder data(byte @NotNull [] data);
@@ -75,6 +97,8 @@ public interface OutboundPubSubMessageBuilder {
      *
      * @param data the value of the data. {@link java.nio.charset.StandardCharsets#UTF_8} is used for encoding.
      * @return this builder
+     * @throws IllegalArgumentException if {@code data} exceeds the max size of 10,000,000 bytes (10MB)
+     * @throws NullPointerException     if {@code data} is null
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder data(@NotNull String data);
@@ -85,25 +109,41 @@ public interface OutboundPubSubMessageBuilder {
      * @param data    the value of the data.
      * @param charset the {@link Charset} used for encoding.
      * @return this builder
+     * @throws NullPointerException     if {@code data} is null
+     * @throws IllegalArgumentException if {@code data} exceeds the max size of 10,000,000 bytes (10MB)
+     * @throws NullPointerException     if {@code charset} is null
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder data(@NotNull String data, @NotNull Charset charset);
 
     /**
-     * Add an attribute to the PubSub message.
+     * Add an attribute to the PubSub message. If the builder previously contained a mapping for the key, the old value is replaced by the specified value.
      *
      * @param key   the key of the attribute.
      * @param value the value of the attribute.
      * @return this builder
+     * @throws NullPointerException     if {@code key} is null
+     * @throws IllegalArgumentException if {@code key} exceeds the max size of 256 bytes (UTF-8)
+     * @throws NullPointerException     if {@code value} is null
+     * @throws IllegalArgumentException if {@code value} exceeds the max size of 1,024 bytes (UTF-8)
+     * @throws IllegalArgumentException if the total number of attributes exceeds the max size of 100
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder attribute(@NotNull String key, @NotNull String value);
 
     /**
-     * Add attributes to the PubSub message.
+     * Add all {@code attributes} to the PubSub message. If the builder previously contained a mapping for a key, the old value is replaced by the specified value.
      *
      * @param attributes the attributes to add to the PubSub message.
      * @return this builder
+     * @throws NullPointerException     if {@code attributes} is null
+     * @throws NullPointerException     if any {@code key} of {@code attributes} is null
+     * @throws IllegalArgumentException if any {@code key} of {@code attributes} exceeds the max size of 256 bytes
+     *                                  (UTF-8)
+     * @throws NullPointerException     if any {@code value} of {@code attributes} is null
+     * @throws IllegalArgumentException if any {@code value} of {@code attributes} exceeds the max size of 1,024 bytes
+     *                                  (UTF-8)
+     * @throws IllegalArgumentException if the total number of attributes exceeds the max size of 100
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder attributes(@NotNull Map<String, String> attributes);
@@ -113,6 +153,7 @@ public interface OutboundPubSubMessageBuilder {
      *
      * @param orderingKey the orderingKey.
      * @return this builder
+     * @throws NullPointerException if {@code orderingKey} is null
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder orderingKey(@NotNull String orderingKey);
@@ -122,8 +163,9 @@ public interface OutboundPubSubMessageBuilder {
      * afterwards.
      *
      * @return a new {@link OutboundPubSubMessage} containing a snapshot of the current state of this builder.
-     * @throws IllegalStateException if the {@code topicName} was not set.
-     * @throws IllegalStateException if data was not set and attributes is empty.
+     * @throws IllegalStateException if {@code topicName} was not set.
+     * @throws IllegalStateException if {@code data} was not set and {@code attributes} is empty.
+     * @throws IllegalStateException if the consequential request size exceeds the max size of 10,000,000 bytes (10MB)
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessage build();
