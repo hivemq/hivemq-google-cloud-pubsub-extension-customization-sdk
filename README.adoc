@@ -28,15 +28,8 @@ Maven
 </dependency>
 ----
 
-Gradle (Groovy)
+Gradle
 [source,groovy]
-
-----
-implementation('com.hivemq:hivemq-pubsub-extension-customization-sdk:4.9.0')
-----
-
-Gradle (Kotlin)
-[source,kotlin]
 
 ----
 implementation("com.hivemq:hivemq-pubsub-extension-customization-sdk:4.9.0")

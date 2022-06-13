@@ -21,13 +21,17 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 import java.nio.ByteBuffer;
+import java.util.Map;
 import java.util.Optional;
 
 /**
  * Represents a PubSub message.
  * <p>
- * The internal state of this interface is completely immutable. All returned {@link ByteBuffer}s are read only and a
- * deep copy of any {@code byte[]} is made for every method call returning one.
+ * The internal state of this interface is immutable.
+ * <ul>
+ * <li>Every returned {@link ByteBuffer} is read only.</li>
+ * <li>Every returned  {@code byte[]} is a defensive copy.</li>
+ * </ul>
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -44,10 +48,10 @@ public interface PubSubMessage {
     @NotNull String getTopicName();
 
     /**
-     * @return the {@link PubSubAttributes} of this message. These might be empty.
+     * @return a {@link Map} containing the attributes of this message. The {@link Map} might be empty.
      * @since 4.9.0
      */
-    @NotNull PubSubAttributes getAttributes();
+    @Immutable @NotNull Map<String, String> getAttributes();
 
     /**
      * @return an {@link Optional} of the data of this message.

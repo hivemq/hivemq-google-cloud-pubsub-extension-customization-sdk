@@ -21,6 +21,7 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -54,6 +55,12 @@ public interface CustomProperties {
      * @since 4.9.0
      */
     @Immutable @NotNull List<@NotNull CustomProperty> asList();
+
+    /**
+     * @return A map with the first value for every custom property name.
+     * @since 4.9.0
+     */
+    @Immutable @NotNull Map<String, String> asSingleValueMap();
 
     /**
      * @return <code>true</code> if no custom properties are present, else <code>false</code>.

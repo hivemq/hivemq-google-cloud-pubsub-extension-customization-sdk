@@ -23,7 +23,7 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 /**
  * Represents an inbound PubSub message that was read from PubSub.
  * <p>
- * The internal state of this interface is completely immutable.
+ * The internal state of this interface is immutable.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
