@@ -1,0 +1,37 @@
+name: Publish to Maven Central
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    environment: mavenCentralPublish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure git
+        env:
+          TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout hivemq-platform
+        run: |
+          git clone https://github.com/hivemq/hivemq-platform.git ../hivemq-platform
+          cd ../hivemq-platform
+          git checkout "${GITHUB_REF##*/}" || true
+          cd ../hivemq-pubsub-extension-customization-sdk
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+      - name: Check
+        run: ./gradlew check
+      - name: Publish to Maven Central
+        env:
+          ORG_GRADLE_PROJECT_signKey: ${{ secrets.SIGN_KEY }}
+          ORG_GRADLE_PROJECT_signKeyPass: ${{ secrets.SIGN_KEY_PASS }}
+          ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_USERNAME }}
+          ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASSWORD }}
+        run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
