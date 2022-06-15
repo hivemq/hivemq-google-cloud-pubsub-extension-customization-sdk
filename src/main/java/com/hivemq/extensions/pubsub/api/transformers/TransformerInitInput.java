@@ -20,7 +20,7 @@ import com.codahale.metrics.MetricRegistry;
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.CustomProperties;
+import com.hivemq.extensions.pubsub.api.model.CustomSettings;
 import com.hivemq.extensions.pubsub.api.model.PubSubConnection;
 
 /**
@@ -44,10 +44,10 @@ public interface TransformerInitInput {
     @NotNull MetricRegistry getMetricRegistry();
 
     /**
-     * @return the {@link CustomProperties} this transformer is associated with.
+     * @return the {@link CustomSettings} this transformer is associated with.
      * @since 4.9.0
      */
-    @NotNull CustomProperties getCustomProperties();
+    @NotNull CustomSettings getCustomSettings();
 
     /**
      * @return the {@link PubSubConnection} this transformer is associated with.
