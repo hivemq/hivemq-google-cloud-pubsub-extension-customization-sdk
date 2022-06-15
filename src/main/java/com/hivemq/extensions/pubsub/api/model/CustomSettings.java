@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * This interface provides information about {@code <custom-properties>} as it is configured in the
+ * This interface provides information about {@code <custom-settings>} as it is configured in the
  * {@code pubsub-extension.xml}.
  *
  * @author Florian Limpöck
@@ -34,36 +34,36 @@ import java.util.Optional;
  */
 @Immutable
 @DoNotImplement
-public interface CustomProperties {
+public interface CustomSettings {
 
     /**
-     * @param name The name of the custom property to get.
-     * @return An {@link Optional} that contains the first custom property with the specified name.
+     * @param name The name of the custom setting to get.
+     * @return An {@link Optional} that contains the first custom setting with the specified name.
      * @since 4.9.0
      */
     @NotNull Optional<String> getFirst(@NotNull String name);
 
     /**
-     * @param name The name of the custom properties to get.
-     * @return The values custom property with the specified name.
+     * @param name The name of the custom settings to get.
+     * @return The values custom setting with the specified name.
      * @since 4.9.0
      */
     @Immutable @NotNull List<@NotNull String> getAllForName(@NotNull String name);
 
     /**
-     * @return A list of all {@link CustomProperty}s.
+     * @return A list of all {@link CustomSetting}s.
      * @since 4.9.0
      */
-    @Immutable @NotNull List<@NotNull CustomProperty> asList();
+    @Immutable @NotNull List<@NotNull CustomSetting> asList();
 
     /**
-     * @return A map with the first value for every custom property name.
+     * @return A map with the first value for every custom setting name.
      * @since 4.9.0
      */
     @Immutable @NotNull Map<String, String> asSingleValueMap();
 
     /**
-     * @return <code>true</code> if no custom properties are present, else <code>false</code>.
+     * @return <code>true</code> if no custom settings are present, else <code>false</code>.
      * @since 4.9.0
      */
     boolean isEmpty();

@@ -21,7 +21,7 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * A representation for a custom property.
+ * A representation for a custom setting.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,16 +29,16 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface CustomProperty {
+public interface CustomSetting {
 
     /**
-     * @return The name of the custom property.
+     * @return The name of the custom setting.
      * @since 4.9.0
      */
     @NotNull String getName();
 
     /**
-     * @return The value of the custom property.
+     * @return The value of the custom setting.
      * @since 4.9.0
      */
     @NotNull String getValue();
