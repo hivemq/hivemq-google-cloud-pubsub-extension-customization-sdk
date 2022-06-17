@@ -29,4 +29,5 @@ import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
  */
 @Immutable
 @DoNotImplement
-public interface MqttToPubSubInitInput extends TransformerInitInput {}
+public interface MqttToPubSubInitInput extends TransformerInitInput {
+}
