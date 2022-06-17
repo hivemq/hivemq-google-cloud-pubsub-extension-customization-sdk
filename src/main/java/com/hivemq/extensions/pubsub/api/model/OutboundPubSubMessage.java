@@ -30,4 +30,5 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
  */
 @Immutable
 @DoNotImplement
-public interface OutboundPubSubMessage extends PubSubMessage {}
+public interface OutboundPubSubMessage extends PubSubMessage {
+}

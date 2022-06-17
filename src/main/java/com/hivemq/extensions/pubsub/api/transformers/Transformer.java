@@ -39,5 +39,6 @@ public interface Transformer<I extends TransformerInitInput> {
      *                             com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub.MqttToPubSubInitInput}.
      * @since 4.9.0
      */
-    default void init(final @NotNull I transformerInitInput) {}
+    default void init(final @NotNull I transformerInitInput) {
+    }
 }
