@@ -153,7 +153,7 @@ public interface OutboundPubSubMessageBuilder {
      *
      * @param orderingKey the orderingKey.
      * @return this builder
-     * @throws NullPointerException if {@code orderingKey} is null
+     * @throws NullPointerException     if {@code orderingKey} is null
      * @throws IllegalArgumentException if {@code orderingKey} exceeds the max size of 1,024 bytes (UTF-8)
      * @since 4.9.0
      */
