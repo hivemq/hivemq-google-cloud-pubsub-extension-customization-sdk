@@ -117,7 +117,8 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder data(@NotNull String data, @NotNull Charset charset);
 
     /**
-     * Add an attribute to the PubSub message. If the builder previously contained a mapping for the key, the old value is replaced by the specified value.
+     * Add an attribute to the PubSub message. If the builder previously contained a mapping for the key, the old value
+     * is replaced by the specified value.
      *
      * @param key   the key of the attribute.
      * @param value the value of the attribute.
@@ -132,7 +133,8 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder attribute(@NotNull String key, @NotNull String value);
 
     /**
-     * Add all {@code attributes} to the PubSub message. If the builder previously contained a mapping for a key, the old value is replaced by the specified value.
+     * Add all {@code attributes} to the PubSub message. If the builder previously contained a mapping for a key, the
+     * old value is replaced by the specified value.
      *
      * @param attributes the attributes to add to the PubSub message.
      * @return this builder
