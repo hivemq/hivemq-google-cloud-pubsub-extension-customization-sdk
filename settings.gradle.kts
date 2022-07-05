@@ -15,7 +15,6 @@ pluginManagement {
 }
 
 includeBuild("../hivemq-platform")
-includeBuild("../hivemq")
 if (file("../hivemq-extension-sdk").exists()) {
     includeBuild("../hivemq-extension-sdk")
 }
