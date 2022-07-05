@@ -22,10 +22,10 @@ plugins.withId("com.hivemq.version-updater") {
 }
 
 group = "com.hivemq"
-description = "SDK for the development of HiveMQ PubSub Extension customizations"
+description = "SDK for the development of HiveMQ GCP PubSub Extension customizations"
 
 metadata {
-    readableName.set("HiveMQ PubSub Extension Customization SDK")
+    readableName.set("HiveMQ GCP PubSub Extension Customization SDK")
     organization {
         name.set("HiveMQ GmbH")
         url.set("https://www.hivemq.com/")
@@ -57,7 +57,7 @@ metadata {
     }
     github {
         org.set("hivemq")
-        repo.set("hivemq-pubsub-extension-customization-sdk")
+        repo.set("hivemq-gcp-pubsub-extension-customization-sdk")
         issues()
     }
 }

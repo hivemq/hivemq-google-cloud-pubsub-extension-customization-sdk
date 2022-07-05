@@ -1,4 +1,4 @@
-rootProject.name = "hivemq-pubsub-extension-customization-sdk"
+rootProject.name = "hivemq-gcp-pubsub-extension-customization-sdk"
 
 pluginManagement {
     plugins {
@@ -15,6 +15,7 @@ pluginManagement {
 }
 
 includeBuild("../hivemq-platform")
+includeBuild("../hivemq")
 if (file("../hivemq-extension-sdk").exists()) {
     includeBuild("../hivemq-extension-sdk")
 }

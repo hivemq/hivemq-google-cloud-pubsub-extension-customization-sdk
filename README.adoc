@@ -1,20 +1,20 @@
-= HiveMQ PubSub Extension Customization SDK
+= HiveMQ GCP PubSub Extension Customization SDK
 
-image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-pubsub-extension-customization-sdk"]
-image:https://javadoc.io/badge2/com.hivemq/hivemq-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-pubsub-extension-customization-sdk]
+image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-pubsub-extension-customization-sdk"]
+image:https://javadoc.io/badge2/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-pubsub-extension-customization-sdk]
 
 == Features
 
-The HiveMQ PubSub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-google-pubsub-extension/[HiveMQ Enterprise Extension for PubSub].
+The HiveMQ GCP PubSub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-google-pubsub-extension/[HiveMQ Enterprise Extension for PubSub].
 
-By implementing a customization for the HiveMQ Enterprise Extension for PubSub it is possible to:
+By implementing a customization for the HiveMQ Enterprise Extension for GCP PubSub it is possible to:
 
-* Transform a MQTT PUBLISH into multiple or none PubSub messages.
-* Transform a PubSub messages into multiple or none MQTT PUBLISHES.
+* Transform a MQTT PUBLISH into multiple or none GCP PubSub messages.
+* Transform a GCP PubSub messages into multiple or none MQTT PUBLISHES.
 
 == Using the SDK
 
-The HiveMQ PubSub Extension Customization SDK is available in Maven central, so no special configuration is needed.
+The HiveMQ GCP PubSub Extension Customization SDK is available in Maven central, so no special configuration is needed.
 To use the SDK, add the following dependency to your project:
 
 Maven
@@ -23,7 +23,7 @@ Maven
 ----
 <dependency>
     <groupId>com.hivemq</groupId>
-    <artifactId>hivemq-pubsub-extension-customization-sdk</artifactId>
+    <artifactId>hivemq-gcp-pubsub-extension-customization-sdk</artifactId>
     <version>4.9.0</version>
 </dependency>
 ----
@@ -32,12 +32,12 @@ Gradle
 [source,groovy]
 
 ----
-implementation("com.hivemq:hivemq-pubsub-extension-customization-sdk:4.9.0")
+implementation("com.hivemq:hivemq-gcp-pubsub-extension-customization-sdk:4.9.0")
 ----
 
 == License
 
-The HiveMQ PubSub Extension SDK is licensed under the `APACHE LICENSE, VERSION 2.0`.
+The HiveMQ GCP PubSub Extension SDK is licensed under the `APACHE LICENSE, VERSION 2.0`.
 A copy of the license can be found link:LICENSE[here].
 
 == Setup
