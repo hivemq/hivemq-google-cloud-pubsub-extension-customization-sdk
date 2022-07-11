@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.pubsubtomqtt;
+package com.hivemq.extensions.gcp.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
+import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * Provides context for the initialization of a {@link PubSubToMqttTransformer}.
+ * A representation for a custom setting.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,5 +29,17 @@ import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
  */
 @Immutable
 @DoNotImplement
-public interface PubSubToMqttInitInput extends TransformerInitInput {
+public interface CustomSetting {
+
+    /**
+     * @return The name of the custom setting.
+     * @since 4.9.0
+     */
+    @NotNull String getName();
+
+    /**
+     * @return The value of the custom setting.
+     * @since 4.9.0
+     */
+    @NotNull String getValue();
 }

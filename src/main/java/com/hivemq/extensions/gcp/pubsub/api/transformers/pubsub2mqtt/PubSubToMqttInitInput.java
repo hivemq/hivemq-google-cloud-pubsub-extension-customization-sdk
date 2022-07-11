@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.pubsub2mqtt;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
+import com.hivemq.extensions.gcp.pubsub.api.transformers.TransformerInitInput;
 
 /**
- * Provides context for the initialization of a {@link MqttToPubSubTransformer}.
+ * Provides context for the initialization of a {@link PubSubToMqttTransformer}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,5 +29,5 @@ import com.hivemq.extensions.pubsub.api.transformers.TransformerInitInput;
  */
 @Immutable
 @DoNotImplement
-public interface MqttToPubSubInitInput extends TransformerInitInput {
+public interface PubSubToMqttInitInput extends TransformerInitInput {
 }

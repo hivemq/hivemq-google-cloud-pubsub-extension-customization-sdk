@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers;
+package com.hivemq.extensions.gcp.pubsub.api.transformers;
 
 import com.codahale.metrics.MetricRegistry;
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.CustomSettings;
-import com.hivemq.extensions.pubsub.api.model.PubSubConnection;
+import com.hivemq.extensions.gcp.pubsub.api.model.CustomSettings;
+import com.hivemq.extensions.gcp.pubsub.api.model.PubSubConnection;
 
 /**
  * A marker interface for the input object of the {@link Transformer#init(TransformerInitInput)} method.

@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.pubsubtomqtt;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.pubsub2mqtt;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.services.builder.PublishBuilder;
 import com.hivemq.extension.sdk.api.services.publish.Publish;
+import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
 
 import java.util.List;
 
@@ -49,7 +50,7 @@ public interface PubSubToMqttOutput {
      * argument.
      * <p>
      * If desired, the same publish can occupy multiple places in the {@code publishes} list. When no publish shall be
-     * published by HiveMQ for a {@link com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage}, call this method
+     * published by HiveMQ for a {@link InboundPubSubMessage}, call this method
      * with an empty list.
      * <p>
      * Use the {@link #newPublishBuilder() PublishBuilder} to create new publishes as desired.

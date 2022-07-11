@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.model;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.pubsub2mqtt;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
+import com.hivemq.extension.sdk.api.annotations.NotNull;
+import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
 
 /**
- * Timestamp that represents a point in time from epoch (UTC 00:00:00 01.01.1970), encoded as a count of seconds and
- * fractions of seconds at nanosecond resolution.
+ * The input parameter of the {@link PubSubToMqttTransformer}. It contains the information of
+ * {@link InboundPubSubMessage} the to be transformed.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,23 +31,11 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
  */
 @Immutable
 @DoNotImplement
-public interface Timestamp {
+public interface PubSubToMqttInput {
 
     /**
-     * @return count of seconds from epoch.
+     * @return the {@link InboundPubSubMessage} that triggered this transformer call.
      * @since 4.9.0
      */
-    long getSeconds();
-
-    /**
-     * @return fractions of seconds at nanosecond resolution.
-     * @since 4.9.0
-     */
-    int getNanos();
-
-    /**
-     * @return count of milliseconds from epoch. The applied conversion truncates, so lose precision.
-     * @since 4.9.0
-     */
-    long toMillis();
+    @NotNull InboundPubSubMessage getInboundPubSubMessage();
 }
