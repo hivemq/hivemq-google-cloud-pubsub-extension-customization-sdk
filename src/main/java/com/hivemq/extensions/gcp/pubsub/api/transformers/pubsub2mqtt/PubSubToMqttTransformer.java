@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.pubsubtomqtt;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.pubsub2mqtt;
 
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.annotations.ThreadSafe;
-import com.hivemq.extensions.pubsub.api.transformers.Transformer;
+import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
+import com.hivemq.extensions.gcp.pubsub.api.transformers.Transformer;
 
 /**
  * Implement this transformer for the programmatic creation of
  * {@link com.hivemq.extension.sdk.api.services.publish.Publish} from
- * {@link com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage}. One instance of the implementing class is
+ * {@link InboundPubSubMessage}. One instance of the implementing class is
  * created per reference in the pubsub-configuration.xml. The methods of this interface may be called concurrently and
  * must be thread-safe.
  * <p>
@@ -40,7 +41,7 @@ import com.hivemq.extensions.pubsub.api.transformers.Transformer;
 public interface PubSubToMqttTransformer extends Transformer<PubSubToMqttInitInput> {
 
     /**
-     * This callback is executed for every {@link com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage} that is
+     * This callback is executed for every {@link InboundPubSubMessage} that is
      * polled by the HiveMQ Enterprise Extension for PubSub and matches the {@code <mqtt-to-pubsub-transformer>} tag
      * configured in the {@code <mqtt-topic-filters>}. It allows the publication of any number of
      * {@link com.hivemq.extension.sdk.api.services.publish.Publish Publishes} via the {@link PubSubToMqttOutput}
@@ -48,7 +49,7 @@ public interface PubSubToMqttTransformer extends Transformer<PubSubToMqttInitInp
      * exception handling and this method must not throw any {@link Exception}.
      *
      * @param pubSubToMqttInput  the {@link PubSubToMqttInput} contains the triggering
-     *                           {@link com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage}.
+     *                           {@link InboundPubSubMessage}.
      * @param pubSubToMqttOutput the {@link PubSubToMqttOutput} allows to
      *                           {@link PubSubToMqttOutput#setPublishes(java.util.List)} provide a list of Publishes. If
      *                           no {@code pubSubToMqttOutput} is set, an empty List is used as default and the PubSub

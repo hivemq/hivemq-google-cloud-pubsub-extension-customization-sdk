@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.mqtt2pubsub;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.builders.OutboundPubSubMessageBuilder;
-import com.hivemq.extensions.pubsub.api.model.OutboundPubSubMessage;
+import com.hivemq.extensions.gcp.pubsub.api.builders.OutboundPubSubMessageBuilder;
+import com.hivemq.extensions.gcp.pubsub.api.model.OutboundPubSubMessage;
 
 import java.util.List;
 

@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.model;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.mqtt2pubsub;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extension.sdk.api.annotations.NotNull;
+import com.hivemq.extensions.gcp.pubsub.api.transformers.TransformerInitInput;
 
 /**
- * This interface provides information about a {@code <pubsub-connection>} as it is configured in the
- * {@code pubsub-extension.xml}.
+ * Provides context for the initialization of a {@link MqttToPubSubTransformer}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -30,17 +29,5 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface PubSubConnection {
-
-    /**
-     * @return the configured {@code <id>} of the connection.
-     * @since 4.9.0
-     */
-    @NotNull String getId();
-
-    /**
-     * @return the configured {@code <project-id>} of the connection.
-     * @since 4.9.0
-     */
-    @NotNull String getProjectId();
+public interface MqttToPubSubInitInput extends TransformerInitInput {
 }
