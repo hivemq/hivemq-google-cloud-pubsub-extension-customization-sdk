@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers.pubsub2mqtt;
+package com.hivemq.extensions.gcp.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.annotations.ThreadSafe;
 import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
-import com.hivemq.extensions.gcp.pubsub.api.transformers.Transformer;
 
 /**
  * Implement this transformer for the programmatic creation of

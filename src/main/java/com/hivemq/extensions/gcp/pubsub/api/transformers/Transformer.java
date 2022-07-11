@@ -19,7 +19,6 @@ package com.hivemq.extensions.gcp.pubsub.api.transformers;
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.gcp.pubsub.api.transformers.mqtt2pubsub.MqttToPubSubInitInput;
 
 /**
  * This is the base interface for all HiveMQ Enterprise Extension for PubSub transformer.
