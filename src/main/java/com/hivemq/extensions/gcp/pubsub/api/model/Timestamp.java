@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.model;
+package com.hivemq.extensions.gcp.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * A representation for a custom setting.
+ * Timestamp that represents a point in time from epoch (UTC 00:00:00 01.01.1970), encoded as a count of seconds and
+ * fractions of seconds at nanosecond resolution.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,17 +29,23 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface CustomSetting {
+public interface Timestamp {
 
     /**
-     * @return The name of the custom setting.
+     * @return count of seconds from epoch.
      * @since 4.9.0
      */
-    @NotNull String getName();
+    long getSeconds();
 
     /**
-     * @return The value of the custom setting.
+     * @return fractions of seconds at nanosecond resolution.
      * @since 4.9.0
      */
-    @NotNull String getValue();
+    int getNanos();
+
+    /**
+     * @return count of milliseconds from epoch. The applied conversion truncates, so lose precision.
+     * @since 4.9.0
+     */
+    long toMillis();
 }

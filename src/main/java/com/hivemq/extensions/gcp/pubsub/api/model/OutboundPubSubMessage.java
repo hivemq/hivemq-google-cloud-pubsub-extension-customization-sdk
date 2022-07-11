@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.model;
+package com.hivemq.extensions.gcp.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
-import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * Represents an inbound PubSub message that was read from PubSub.
+ * Represents an outbound PubSub message, that should be written to PubSub.
  * <p>
  * The internal state of this interface is immutable.
  *
@@ -31,17 +30,5 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface InboundPubSubMessage extends PubSubMessage {
-
-    /**
-     * @return the messageId of this message.
-     * @since 4.9.0
-     */
-    @NotNull String getMessageId();
-
-    /**
-     * @return the publishTime of this message.
-     * @since 4.9.0
-     */
-    @NotNull Timestamp getPublishTime();
+public interface OutboundPubSubMessage extends PubSubMessage {
 }

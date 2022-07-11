@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers;
+package com.hivemq.extensions.gcp.pubsub.api.transformers.mqtt2pubsub;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
+import com.hivemq.extension.sdk.api.packets.publish.PublishPacket;
 
 /**
- * This is the base interface for all HiveMQ Enterprise Extension for PubSub transformer.
+ * The input parameter of the {@link MqttToPubSubTransformer}. It contains the information of the {@link PublishPacket}
+ * to be transformed.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,16 +31,11 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface Transformer<I extends TransformerInitInput> {
+public interface MqttToPubSubInput {
 
     /**
-     * Use the init method to initialize the transformer.
-     *
-     * @param transformerInitInput see the specific transformerInitInput e.g.
-     *                             {@link
-     *                             com.hivemq.extensions.pubsub.api.transformers.mqtttopubsub.MqttToPubSubInitInput}.
+     * @return the {@link PublishPacket} that triggered this transformer call.
      * @since 4.9.0
      */
-    default void init(final @NotNull I transformerInitInput) {
-    }
+    @NotNull PublishPacket getPublishPacket();
 }

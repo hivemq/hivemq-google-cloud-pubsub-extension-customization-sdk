@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.pubsub.api.transformers.pubsubtomqtt;
+package com.hivemq.extensions.gcp.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage;
 
 /**
- * The input parameter of the {@link PubSubToMqttTransformer}. It contains the information of
- * {@link InboundPubSubMessage} the to be transformed.
+ * This interface provides information about a {@code <pubsub-connection>} as it is configured in the
+ * {@code pubsub-extension.xml}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -31,11 +30,17 @@ import com.hivemq.extensions.pubsub.api.model.InboundPubSubMessage;
  */
 @Immutable
 @DoNotImplement
-public interface PubSubToMqttInput {
+public interface PubSubConnection {
 
     /**
-     * @return the {@link InboundPubSubMessage} that triggered this transformer call.
+     * @return the configured {@code <id>} of the connection.
      * @since 4.9.0
      */
-    @NotNull InboundPubSubMessage getInboundPubSubMessage();
+    @NotNull String getId();
+
+    /**
+     * @return the configured {@code <project-id>} of the connection.
+     * @since 4.9.0
+     */
+    @NotNull String getProjectId();
 }
