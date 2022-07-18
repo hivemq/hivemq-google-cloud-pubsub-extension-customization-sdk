@@ -17,7 +17,6 @@
 package com.hivemq.extensions.gcp.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
-import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
@@ -27,7 +26,6 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  * @author Mario Schwede
  * @since 4.9.0
  */
-@Immutable
 @DoNotImplement
 public interface Transformer<I extends TransformerInitInput> {
 
