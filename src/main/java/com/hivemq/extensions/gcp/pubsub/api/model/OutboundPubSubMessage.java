@@ -18,6 +18,7 @@ package com.hivemq.extensions.gcp.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
+import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
  * Represents an outbound PubSub message, that should be written to PubSub.
@@ -31,4 +32,10 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 @Immutable
 @DoNotImplement
 public interface OutboundPubSubMessage extends PubSubMessage {
+
+    /**
+     * @return the topic name where this message goes to
+     * @since 4.9.0
+     */
+    @NotNull String getTopicName();
 }
