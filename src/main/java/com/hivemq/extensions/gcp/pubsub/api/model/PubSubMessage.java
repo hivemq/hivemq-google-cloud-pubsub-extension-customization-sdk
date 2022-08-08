@@ -42,12 +42,6 @@ import java.util.Optional;
 public interface PubSubMessage {
 
     /**
-     * @return the topic name of this message.
-     * @since 4.9.0
-     */
-    @NotNull String getTopicName();
-
-    /**
      * @return a {@link Map} containing the attributes of this message. The {@link Map} might be empty.
      * @since 4.9.0
      */
