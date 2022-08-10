@@ -34,7 +34,7 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 public interface OutboundPubSubMessage extends PubSubMessage {
 
     /**
-     * @return the topic name where this message goes to
+     * @return the topicName where this message goes to.
      * @since 4.9.0
      */
     @NotNull String getTopicName();

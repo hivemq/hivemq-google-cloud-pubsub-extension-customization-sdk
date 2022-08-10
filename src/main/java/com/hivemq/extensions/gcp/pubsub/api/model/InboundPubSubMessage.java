@@ -34,7 +34,7 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 public interface InboundPubSubMessage extends PubSubMessage {
 
     /**
-     * @return the subscription name where this message came from
+     * @return the subscriptionName where this message came from.
      * @since 4.9.0
      */
     @NotNull String getSubscriptionName();
