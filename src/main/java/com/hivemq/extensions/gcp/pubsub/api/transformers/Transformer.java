@@ -20,7 +20,7 @@ import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * This is the base interface for all HiveMQ Enterprise Extension for Pub/Sub transformer.
+ * This is the base interface for all HiveMQ Enterprise Extension for GCP Pub/Sub transformer.
  *
  * @author Florian Limpöck
  * @author Mario Schwede

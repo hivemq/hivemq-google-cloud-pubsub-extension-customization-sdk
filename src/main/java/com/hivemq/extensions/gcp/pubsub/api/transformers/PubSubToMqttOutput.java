@@ -46,7 +46,7 @@ public interface PubSubToMqttOutput {
     /**
      * Sets the {@link Publish}es, that will be published by HiveMQ after the
      * {@link PubSubToMqttTransformer#transformPubSubToMqtt(PubSubToMqttInput, PubSubToMqttOutput)} call returns. The
-     * HiveMQ Enterprise Extension for Pub/Sub will publish the publishes in the order provided by the {@code publishes}
+     * HiveMQ Enterprise Extension for GCP Pub/Sub will publish the publishes in the order provided by the {@code publishes}
      * argument.
      * <p>
      * If desired, the same publish can occupy multiple places in the {@code publishes} list. When no publish shall be

@@ -21,7 +21,7 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * Represents an inbound Pub/Sub message that was read from PubSub.
+ * Represents an inbound GCP Pub/Sub message that was read from PubSub.
  * <p>
  * The internal state of this interface is immutable.
  *
