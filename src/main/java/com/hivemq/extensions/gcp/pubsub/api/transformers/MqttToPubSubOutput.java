@@ -28,7 +28,7 @@ import java.util.List;
  * {@link OutboundPubSubMessageBuilder}.
  * <p>
  * After the {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} method returns
- * the {@link OutboundPubSubMessage}s given to this output will be published to PubSub by the HiveMQ Enterprise
+ * the {@link OutboundPubSubMessage}s given to this output will be published to Pub/Sub by the HiveMQ Enterprise
  * Extension for PubSub.
  *
  * @author Florian Limpöck
@@ -40,7 +40,7 @@ public interface MqttToPubSubOutput {
 
     /**
      * Create a new {@link OutboundPubSubMessageBuilder}. One {@link OutboundPubSubMessageBuilder} can be used to build
-     * multiple PubSub messages.
+     * multiple Pub/Sub messages.
      *
      * @return an empty instance of the {@link OutboundPubSubMessageBuilder}.
      * @since 4.9.0
@@ -48,13 +48,13 @@ public interface MqttToPubSubOutput {
     @NotNull OutboundPubSubMessageBuilder newOutboundPubSubMessageBuilder();
 
     /**
-     * Sets the {@link OutboundPubSubMessage}s, that will be pushed to PubSub after the
+     * Sets the {@link OutboundPubSubMessage}s, that will be pushed to Pub/Sub after the
      * {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} call returns. The
-     * HiveMQ Enterprise Extension for PubSub will publish the messages in the order provided by the
-     * {@code outboundPubSubMessages} argument when PubSub ordering is enabled.
+     * HiveMQ Enterprise Extension for Pub/Sub will publish the messages in the order provided by the
+     * {@code outboundPubSubMessages} argument when Pub/Sub ordering is enabled.
      * <p>
      * If desired, the same message can occupy multiple places in the {@code outboundPubSubMessages} list. When no
-     * message shall be pushed to PubSub for a {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}, call
+     * message shall be pushed to Pub/Sub for a {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}, call
      * this method with an empty list.
      * <p>
      * Use the {@link OutboundPubSubMessageBuilder} to create new messages as desired.

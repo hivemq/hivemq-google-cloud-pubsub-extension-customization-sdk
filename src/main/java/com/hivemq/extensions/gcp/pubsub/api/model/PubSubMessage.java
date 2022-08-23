@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Represents a PubSub message.
+ * Represents a Pub/Sub message.
  * <p>
  * The internal state of this interface is immutable.
  * <ul>

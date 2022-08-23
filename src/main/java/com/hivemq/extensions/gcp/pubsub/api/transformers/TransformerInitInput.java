@@ -38,7 +38,7 @@ public interface TransformerInitInput {
      * Get the {@link MetricRegistry} of this HiveMQ node. It is possible to add own metrics to monitor custom business
      * logic.
      *
-     * @return the {@link MetricRegistry} of the HiveMQ node this Enterprise Extension for PubSub is running on.
+     * @return the {@link MetricRegistry} of the HiveMQ node this Enterprise Extension for Pub/Sub is running on.
      * @since 4.9.0
      */
     @NotNull MetricRegistry getMetricRegistry();

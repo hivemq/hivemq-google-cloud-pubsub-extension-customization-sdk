@@ -41,7 +41,7 @@ public interface PubSubToMqttTransformer extends Transformer<PubSubToMqttInitInp
 
     /**
      * This callback is executed for every {@link InboundPubSubMessage} that is
-     * polled by the HiveMQ Enterprise Extension for PubSub and matches the {@code <mqtt-to-pubsub-transformer>} tag
+     * polled by the HiveMQ Enterprise Extension for Pub/Sub and matches the {@code <mqtt-to-pubsub-transformer>} tag
      * configured in the {@code <mqtt-topic-filters>}. It allows the publication of any number of
      * {@link com.hivemq.extension.sdk.api.services.publish.Publish Publishes} via the {@link PubSubToMqttOutput}
      * object. This method is called by multiple threads concurrently. Extensions are responsible for their own

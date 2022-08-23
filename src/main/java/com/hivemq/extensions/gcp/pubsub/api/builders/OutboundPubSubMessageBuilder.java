@@ -41,7 +41,7 @@ import java.util.Map;
 public interface OutboundPubSubMessageBuilder {
 
     /**
-     * Set the {@code topicName} of the PubSub message. This is required to successfully build a
+     * Set the {@code topicName} of the Pub/Sub message. This is required to successfully build a
      * {@link OutboundPubSubMessage}.
      * <p>
      * Must conform to the following guidelines:
@@ -71,7 +71,7 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder topicName(@NotNull String topicName);
 
     /**
-     * Set the data of the PubSub message.
+     * Set the data of the Pub/Sub message.
      *
      * @param data the value of the data.
      * @return this builder
@@ -82,7 +82,7 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder data(@NotNull ByteBuffer data);
 
     /**
-     * Set the data of the PubSub message.
+     * Set the data of the Pub/Sub message.
      *
      * @param data the value of the data.
      * @return this builder
@@ -93,7 +93,7 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder data(byte @NotNull [] data);
 
     /**
-     * Set the data of the PubSub message.
+     * Set the data of the Pub/Sub message.
      *
      * @param data the value of the data. {@link java.nio.charset.StandardCharsets#UTF_8} is used for encoding.
      * @return this builder
@@ -104,7 +104,7 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder data(@NotNull String data);
 
     /**
-     * Set the data of the PubSub message.
+     * Set the data of the Pub/Sub message.
      *
      * @param data    the value of the data.
      * @param charset the {@link Charset} used for encoding.
@@ -117,7 +117,7 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder data(@NotNull String data, @NotNull Charset charset);
 
     /**
-     * Add an attribute to the PubSub message. If the builder previously contained a mapping for the key, the old value
+     * Add an attribute to the Pub/Sub message. If the builder previously contained a mapping for the key, the old value
      * is replaced by the specified value.
      *
      * @param key   the key of the attribute.
@@ -133,10 +133,10 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder attribute(@NotNull String key, @NotNull String value);
 
     /**
-     * Add all {@code attributes} to the PubSub message. If the builder previously contained a mapping for a key, the
+     * Add all {@code attributes} to the Pub/Sub message. If the builder previously contained a mapping for a key, the
      * old value is replaced by the specified value.
      *
-     * @param attributes the attributes to add to the PubSub message.
+     * @param attributes the attributes to add to the Pub/Sub message.
      * @return this builder
      * @throws NullPointerException     if {@code attributes} is null
      * @throws NullPointerException     if any {@code key} of {@code attributes} is null
@@ -151,7 +151,7 @@ public interface OutboundPubSubMessageBuilder {
     @NotNull OutboundPubSubMessageBuilder attributes(@NotNull Map<String, String> attributes);
 
     /**
-     * Set the orderingKey of the PubSub message.
+     * Set the orderingKey of the Pub/Sub message.
      *
      * @param orderingKey the orderingKey.
      * @return this builder

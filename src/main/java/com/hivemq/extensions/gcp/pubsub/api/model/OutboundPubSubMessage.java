@@ -21,7 +21,7 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * Represents an outbound PubSub message, that should be written to PubSub.
+ * Represents an outbound Pub/Sub message, that should be written to PubSub.
  * <p>
  * The internal state of this interface is immutable.
  *
