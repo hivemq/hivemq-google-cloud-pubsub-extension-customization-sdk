@@ -1,0 +1,34 @@
+MASTER_BRANCH = 'epic/6638/pubsub-extension'
+
+pipeline {
+    agent { label 'master' }
+    options {
+        skipDefaultCheckout() // no checkout needed
+        buildDiscarder(logRotator(numToKeepStr: '100'))
+        timestamps()
+    }
+    stages {
+        stage('Trigger build') {
+            steps {
+                script {
+                    def multiBranchJobPath = '../../hivemq4-composite'
+                    def branchJobName = BRANCH_NAME.replace('/', '%2F')
+                    try {
+                        build job: "${multiBranchJobPath}/${branchJobName}", wait: false
+                    } catch (e) {
+                        try {
+                            sh """
+                                git clone git@github.com:hivemq/hivemq.git --branch=${MASTER_BRANCH} --single-branch --depth 1 .
+                                git push origin HEAD:${BRANCH_NAME}
+                            """
+                        } catch (e2) { // if push failed, branch already exists
+                        } finally {
+                            cleanWs()
+                            build job: multiBranchJobPath, wait: false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

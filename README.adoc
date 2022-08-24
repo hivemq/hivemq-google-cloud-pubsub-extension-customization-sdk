@@ -1,0 +1,50 @@
+= HiveMQ GCP Pub/Sub Extension Customization SDK
+
+image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk"]
+image:https://javadoc.io/badge2/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk]
+
+== Features
+
+The HiveMQ GCP Pub/Sub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-gcp-pubsub-extension/[HiveMQ Enterprise Extension for GCP Pub/Sub].
+
+By implementing a customization for the HiveMQ Enterprise Extension for GCP Pub/Sub it is possible to:
+
+* Transform a MQTT PUBLISH into multiple or none GCP Pub/Sub messages.
+* Transform a GCP Pub/Sub messages into multiple or none MQTT PUBLISHES.
+
+== Using the SDK
+
+The HiveMQ GCP Pub/Sub Extension Customization SDK is available in Maven central, so no special configuration is needed.
+To use the SDK, add the following dependency to your project:
+
+Maven
+[source,xml]
+
+----
+<dependency>
+    <groupId>com.hivemq</groupId>
+    <artifactId>hivemq-gcp-pubsub-extension-customization-sdk</artifactId>
+    <version>4.9.0,rc-1</version>
+</dependency>
+----
+
+Gradle
+[source,groovy]
+
+----
+implementation("com.hivemq:hivemq-gcp-pubsub-extension-customization-sdk:4.9.0,rc-1")
+----
+
+== License
+
+The HiveMQ GCP Pub/Sub Extension SDK is licensed under the `APACHE LICENSE, VERSION 2.0`.
+A copy of the license can be found link:LICENSE[here].
+
+== Setup
+
+To be able to use the latest changes of the `hivemq-extension-sdk` please check out the https://github.com/hivemq/hivemq-extension-sdk repository in the same folder as the current project.
+(See line `includeBuild("../hivemq-extension-sdk")` in `settings.gradle.kts`).
+
+NOTE: You can also change the path in the `settings.gradle.kts` to the path of your `hivemq-extension-sdk`.
+
+Otherwise, it will not be possible to publish develop snapshots to your local repository.
