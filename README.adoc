@@ -1,11 +1,11 @@
 = HiveMQ GCP Pub/Sub Extension Customization SDK
 
-image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-pubsub-extension-customization-sdk"]
-image:https://javadoc.io/badge2/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-pubsub-extension-customization-sdk]
+image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk"]
+image:https://javadoc.io/badge2/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk]
 
 == Features
 
-The HiveMQ GCP Pub/Sub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-google-pubsub-extension/[HiveMQ Enterprise Extension for PubSub].
+The HiveMQ GCP Pub/Sub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-gcp-pubsub-extension/[HiveMQ Enterprise Extension for GCP Pub/Sub].
 
 By implementing a customization for the HiveMQ Enterprise Extension for GCP Pub/Sub it is possible to:
 
@@ -24,7 +24,7 @@ Maven
 <dependency>
     <groupId>com.hivemq</groupId>
     <artifactId>hivemq-gcp-pubsub-extension-customization-sdk</artifactId>
-    <version>4.9.0</version>
+    <version>4.9.0,rc-1</version>
 </dependency>
 ----
 
@@ -32,7 +32,7 @@ Gradle
 [source,groovy]
 
 ----
-implementation("com.hivemq:hivemq-gcp-pubsub-extension-customization-sdk:4.9.0")
+implementation("com.hivemq:hivemq-gcp-pubsub-extension-customization-sdk:4.9.0,rc-1")
 ----
 
 == License
