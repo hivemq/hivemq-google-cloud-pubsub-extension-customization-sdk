@@ -20,7 +20,7 @@ jobs:
           git clone https://github.com/hivemq/hivemq-platform.git ../hivemq-platform
           cd ../hivemq-platform
           git checkout "${GITHUB_REF##*/}" || true
-          cd ../hivemq-pubsub-extension-customization-sdk
+          cd ../hivemq-google-cloud-pubsub-extension-customization-sdk
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
