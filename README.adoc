@@ -1,20 +1,20 @@
-= HiveMQ GCP Pub/Sub Extension Customization SDK
+= HiveMQ Google Cloud Pub/Sub Extension Customization SDK
 
 image:https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/badge.svg?style=for-the-badge["Maven Central",link="https://maven-badges.herokuapp.com/maven-central/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk"]
 image:https://javadoc.io/badge2/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk/javadoc.svg?style=for-the-badge["javadoc",link=https://javadoc.io/doc/com.hivemq/hivemq-gcp-pubsub-extension-customization-sdk]
 
 == Features
 
-The HiveMQ GCP Pub/Sub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-gcp-pubsub-extension/[HiveMQ Enterprise Extension for GCP Pub/Sub].
+The HiveMQ Google Cloud Pub/Sub Extension Customization SDK allows the programmatic interaction with the https://www.hivemq.com/extension/hivemq-gcp-pubsub-extension/[HiveMQ Enterprise Extension for Google Cloud Pub/Sub].
 
-By implementing a customization for the HiveMQ Enterprise Extension for GCP Pub/Sub it is possible to:
+By implementing a customization for the HiveMQ Enterprise Extension for Google Cloud Pub/Sub it is possible to:
 
-* Transform a MQTT PUBLISH into multiple or none GCP Pub/Sub messages.
-* Transform a GCP Pub/Sub messages into multiple or none MQTT PUBLISHES.
+* Transform a MQTT PUBLISH into multiple or none Google Cloud Pub/Sub messages.
+* Transform a Google Cloud Pub/Sub messages into multiple or none MQTT PUBLISHES.
 
 == Using the SDK
 
-The HiveMQ GCP Pub/Sub Extension Customization SDK is available in Maven central, so no special configuration is needed.
+The HiveMQ Google Cloud Pub/Sub Extension Customization SDK is available in Maven central, so no special configuration is needed.
 To use the SDK, add the following dependency to your project:
 
 Maven
@@ -37,7 +37,7 @@ implementation("com.hivemq:hivemq-gcp-pubsub-extension-customization-sdk:4.9.0,r
 
 == License
 
-The HiveMQ GCP Pub/Sub Extension SDK is licensed under the `APACHE LICENSE, VERSION 2.0`.
+The HiveMQ Google Cloud Pub/Sub Extension SDK is licensed under the `APACHE LICENSE, VERSION 2.0`.
 A copy of the license can be found link:LICENSE[here].
 
 == Setup

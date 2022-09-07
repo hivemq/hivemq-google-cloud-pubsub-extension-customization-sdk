@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.model;
+package com.hivemq.extensions.google.cloud.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * This interface provides information about a {@code <pubsub-connection>} as it is configured in the
- * {@code pubsub-extension.xml}.
+ * Represents an inbound Google Cloud Pub/Sub message that was read from PubSub.
+ * <p>
+ * The internal state of this interface is immutable.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -30,17 +31,23 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface PubSubConnection {
+public interface InboundPubSubMessage extends PubSubMessage {
 
     /**
-     * @return the configured {@code <id>} of the connection.
+     * @return the subscriptionName where this message came from.
      * @since 4.9.0
      */
-    @NotNull String getId();
+    @NotNull String getSubscriptionName();
 
     /**
-     * @return the configured {@code <gcp-project-id>} of the connection.
+     * @return the messageId of this message.
      * @since 4.9.0
      */
-    @NotNull String getProjectId();
+    @NotNull String getMessageId();
+
+    /**
+     * @return the publishTime of this message.
+     * @since 4.9.0
+     */
+    @NotNull Timestamp getPublishTime();
 }

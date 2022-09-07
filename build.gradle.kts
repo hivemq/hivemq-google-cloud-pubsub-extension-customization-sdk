@@ -22,10 +22,10 @@ plugins.withId("com.hivemq.version-updater") {
 }
 
 group = "com.hivemq"
-description = "SDK for the development of HiveMQ GCP Pub/Sub Extension customizations"
+description = "SDK for the development of HiveMQ Google Cloud Pub/Sub Extension customizations"
 
 metadata {
-    readableName.set("HiveMQ GCP Pub/Sub Extension Customization SDK")
+    readableName.set("HiveMQ Google Cloud Pub/Sub Extension Customization SDK")
     organization {
         name.set("HiveMQ GmbH")
         url.set("https://www.hivemq.com/")

@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 
 /**
- * Provides context for the initialization of a {@link PubSubToMqttTransformer}.
+ * Timestamp that represents a point in time from epoch (UTC 00:00:00 01.01.1970), encoded as a count of seconds and
+ * fractions of seconds at nanosecond resolution.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -28,5 +29,23 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
  */
 @Immutable
 @DoNotImplement
-public interface PubSubToMqttInitInput extends TransformerInitInput {
+public interface Timestamp {
+
+    /**
+     * @return count of seconds from epoch.
+     * @since 4.9.0
+     */
+    long getSeconds();
+
+    /**
+     * @return fractions of seconds at nanosecond resolution.
+     * @since 4.9.0
+     */
+    int getNanos();
+
+    /**
+     * @return count of milliseconds from epoch. The applied conversion truncates, so lose precision.
+     * @since 4.9.0
+     */
+    long toMillis();
 }

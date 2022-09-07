@@ -14,29 +14,19 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
-import com.hivemq.extension.sdk.api.annotations.NotNull;
+import com.hivemq.extension.sdk.api.annotations.Immutable;
 
 /**
- * This is the base interface for all HiveMQ Enterprise Extension for GCP Pub/Sub transformer.
+ * Provides context for the initialization of a {@link PubSubToMqttTransformer}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
  * @since 4.9.0
  */
+@Immutable
 @DoNotImplement
-public interface Transformer<I extends TransformerInitInput> {
-
-    /**
-     * Use the init method to initialize the transformer.
-     *
-     * @param transformerInitInput see the specific transformerInitInput e.g.
-     *                             {@link
-     *                             MqttToPubSubInitInput}.
-     * @since 4.9.0
-     */
-    default void init(final @NotNull I transformerInitInput) {
-    }
+public interface PubSubToMqttInitInput extends TransformerInitInput {
 }

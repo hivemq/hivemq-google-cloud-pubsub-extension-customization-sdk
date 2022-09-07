@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.model;
+package com.hivemq.extensions.google.cloud.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
+import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * Timestamp that represents a point in time from epoch (UTC 00:00:00 01.01.1970), encoded as a count of seconds and
- * fractions of seconds at nanosecond resolution.
+ * This interface provides information about a {@code <pubsub-connection>} as it is configured in the
+ * {@code pubsub-extension.xml}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,23 +30,17 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
  */
 @Immutable
 @DoNotImplement
-public interface Timestamp {
+public interface PubSubConnection {
 
     /**
-     * @return count of seconds from epoch.
+     * @return the configured {@code <id>} of the connection.
      * @since 4.9.0
      */
-    long getSeconds();
+    @NotNull String getId();
 
     /**
-     * @return fractions of seconds at nanosecond resolution.
+     * @return the configured {@code <gcp-project-id>} of the connection.
      * @since 4.9.0
      */
-    int getNanos();
-
-    /**
-     * @return count of milliseconds from epoch. The applied conversion truncates, so lose precision.
-     * @since 4.9.0
-     */
-    long toMillis();
+    @NotNull String getProjectId();
 }

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.services.builder.PublishBuilder;
 import com.hivemq.extension.sdk.api.services.publish.Publish;
-import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.InboundPubSubMessage;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public interface PubSubToMqttOutput {
     /**
      * Sets the {@link Publish}es, that will be published by HiveMQ after the
      * {@link PubSubToMqttTransformer#transformPubSubToMqtt(PubSubToMqttInput, PubSubToMqttOutput)} call returns. The
-     * HiveMQ Enterprise Extension for GCP Pub/Sub will publish the publishes in the order provided by the {@code publishes}
+     * HiveMQ Enterprise Extension for Google Cloud Pub/Sub will publish the publishes in the order provided by the {@code publishes}
      * argument.
      * <p>
      * If desired, the same publish can occupy multiple places in the {@code publishes} list. When no publish shall be

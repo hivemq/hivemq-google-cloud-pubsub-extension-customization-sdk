@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.gcp.pubsub.api.model.OutboundPubSubMessage;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.OutboundPubSubMessage;
 
 import java.util.List;
 
