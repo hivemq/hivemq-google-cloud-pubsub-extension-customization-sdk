@@ -39,7 +39,7 @@ public interface PubSubConnection {
     @NotNull String getId();
 
     /**
-     * @return the configured {@code <gcp-project-id>} of the connection.
+     * @return the configured {@code <google-cloud-project-id>} of the connection.
      * @since 4.9.0
      */
     @NotNull String getProjectId();
