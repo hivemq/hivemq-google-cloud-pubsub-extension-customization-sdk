@@ -1,4 +1,4 @@
-rootProject.name = "hivemq-gcp-pubsub-extension-customization-sdk"
+rootProject.name = "hivemq-google-cloud-pubsub-extension-customization-sdk"
 
 pluginManagement {
     plugins {
