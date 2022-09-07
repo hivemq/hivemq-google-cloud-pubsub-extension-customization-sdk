@@ -22,7 +22,7 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
  * This interface provides information about a {@code <pubsub-connection>} as it is configured in the
- * {@code pubsub-extension.xml}.
+ * {@code google-cloud-pubsub-configuration.xml}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
