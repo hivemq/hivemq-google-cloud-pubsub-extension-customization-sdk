@@ -1,4 +1,4 @@
-MASTER_BRANCH = 'epic/6638/pubsub-extension'
+MASTER_BRANCH = 'master'
 
 pipeline {
     agent { label 'master' }
