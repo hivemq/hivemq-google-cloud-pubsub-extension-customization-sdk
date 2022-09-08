@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.model;
+package com.hivemq.extensions.google.cloud.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * A representation for a custom setting.
+ * Represents an outbound Google Cloud Pub/Sub message, that should be written to PubSub.
+ * <p>
+ * The internal state of this interface is immutable.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -29,17 +31,11 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface CustomSetting {
+public interface OutboundPubSubMessage extends PubSubMessage {
 
     /**
-     * @return The name of the custom setting.
+     * @return the topicName where this message goes to.
      * @since 4.9.0
      */
-    @NotNull String getName();
-
-    /**
-     * @return The value of the custom setting.
-     * @since 4.9.0
-     */
-    @NotNull String getValue();
+    @NotNull String getTopicName();
 }

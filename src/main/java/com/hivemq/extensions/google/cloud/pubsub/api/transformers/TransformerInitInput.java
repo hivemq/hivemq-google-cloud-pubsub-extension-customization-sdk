@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.codahale.metrics.MetricRegistry;
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.gcp.pubsub.api.model.CustomSettings;
-import com.hivemq.extensions.gcp.pubsub.api.model.PubSubConnection;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.CustomSettings;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.PubSubConnection;
 
 /**
  * A marker interface for the input object of the {@link Transformer#init(TransformerInitInput)} method.
@@ -38,7 +38,8 @@ public interface TransformerInitInput {
      * Get the {@link MetricRegistry} of this HiveMQ node. It is possible to add own metrics to monitor custom business
      * logic.
      *
-     * @return the {@link MetricRegistry} of the HiveMQ node this Enterprise Extension for GCP Pub/Sub is running on.
+     * @return the {@link MetricRegistry} of the HiveMQ node this Enterprise Extension for Google Cloud Pub/Sub is
+     *         running on.
      * @since 4.9.0
      */
     @NotNull MetricRegistry getMetricRegistry();

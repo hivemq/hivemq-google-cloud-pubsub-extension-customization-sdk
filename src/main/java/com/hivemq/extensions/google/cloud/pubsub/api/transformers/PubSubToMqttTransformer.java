@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 import com.hivemq.extension.sdk.api.annotations.ThreadSafe;
-import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.InboundPubSubMessage;
 
 /**
  * Implement this transformer for the programmatic creation of
@@ -30,7 +30,7 @@ import com.hivemq.extensions.gcp.pubsub.api.model.InboundPubSubMessage;
  * Your implementation of the pubSubToMqttTransformer must be placed in a Java archive (.jar) together with all its
  * dependencies in the {@code customizations} folder of the HiveMQ Enterprise Extension for PubSub. In addition a
  * {@code <pubsub-to-mqtt-transformer>} referencing the implementing class via its canonical name must be configured in
- * the {@code pubsub-extension.xml} file.
+ * the {@code google-cloud-pubsub-configuration.xml} file.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -41,7 +41,7 @@ public interface PubSubToMqttTransformer extends Transformer<PubSubToMqttInitInp
 
     /**
      * This callback is executed for every {@link InboundPubSubMessage} that is
-     * polled by the HiveMQ Enterprise Extension for GCP Pub/Sub and matches the {@code <mqtt-to-pubsub-transformer>} tag
+     * polled by the HiveMQ Enterprise Extension for Google Cloud Pub/Sub and matches the {@code <mqtt-to-pubsub-transformer>} tag
      * configured in the {@code <mqtt-topic-filters>}. It allows the publication of any number of
      * {@link com.hivemq.extension.sdk.api.services.publish.Publish Publishes} via the {@link PubSubToMqttOutput}
      * object. This method is called by multiple threads concurrently. Extensions are responsible for their own

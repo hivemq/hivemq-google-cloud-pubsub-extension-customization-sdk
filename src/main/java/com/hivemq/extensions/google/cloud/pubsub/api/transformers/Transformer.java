@@ -14,28 +14,29 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.model;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
-import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
 /**
- * Represents an outbound GCP Pub/Sub message, that should be written to PubSub.
- * <p>
- * The internal state of this interface is immutable.
+ * This is the base interface for all HiveMQ Enterprise Extension for Google Cloud Pub/Sub transformer.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
  * @since 4.9.0
  */
-@Immutable
 @DoNotImplement
-public interface OutboundPubSubMessage extends PubSubMessage {
+public interface Transformer<I extends TransformerInitInput> {
 
     /**
-     * @return the topicName where this message goes to.
+     * Use the init method to initialize the transformer.
+     *
+     * @param transformerInitInput see the specific transformerInitInput e.g.
+     *                             {@link
+     *                             MqttToPubSubInitInput}.
      * @since 4.9.0
      */
-    @NotNull String getTopicName();
+    default void init(final @NotNull I transformerInitInput) {
+    }
 }

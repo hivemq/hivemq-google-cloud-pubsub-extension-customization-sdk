@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.model;
+package com.hivemq.extensions.google.cloud.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
@@ -26,7 +26,7 @@ import java.util.Optional;
 
 /**
  * This interface provides information about {@code <custom-settings>} as it is configured in the
- * {@code pubsub-extension.xml}.
+ * {@code google-cloud-pubsub-configuration.xml}.
  *
  * @author Florian Limpöck
  * @author Mario Schwede

@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
+import com.hivemq.extension.sdk.api.annotations.NotNull;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.InboundPubSubMessage;
 
 /**
- * Provides context for the initialization of a {@link MqttToPubSubTransformer}.
+ * The input parameter of the {@link PubSubToMqttTransformer}. It contains the information of
+ * {@link InboundPubSubMessage} the to be transformed.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -28,5 +31,11 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
  */
 @Immutable
 @DoNotImplement
-public interface MqttToPubSubInitInput extends TransformerInitInput {
+public interface PubSubToMqttInput {
+
+    /**
+     * @return the {@link InboundPubSubMessage} that triggered this transformer call.
+     * @since 4.9.0
+     */
+    @NotNull InboundPubSubMessage getInboundPubSubMessage();
 }

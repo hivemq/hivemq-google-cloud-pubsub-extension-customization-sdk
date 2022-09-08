@@ -14,16 +14,24 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.model;
+package com.hivemq.extensions.google.cloud.pubsub.api.model;
 
 import com.hivemq.extension.sdk.api.annotations.DoNotImplement;
 import com.hivemq.extension.sdk.api.annotations.Immutable;
 import com.hivemq.extension.sdk.api.annotations.NotNull;
 
+import java.nio.ByteBuffer;
+import java.util.Map;
+import java.util.Optional;
+
 /**
- * Represents an inbound GCP Pub/Sub message that was read from PubSub.
+ * Represents a Google Cloud Pub/Sub message.
  * <p>
  * The internal state of this interface is immutable.
+ * <ul>
+ * <li>Every returned {@link ByteBuffer} is read only.</li>
+ * <li>Every returned  {@code byte[]} is a defensive copy.</li>
+ * </ul>
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -31,23 +39,29 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
  */
 @Immutable
 @DoNotImplement
-public interface InboundPubSubMessage extends PubSubMessage {
+public interface PubSubMessage {
 
     /**
-     * @return the subscriptionName where this message came from.
+     * @return a {@link Map} containing the attributes of this message. The {@link Map} might be empty.
      * @since 4.9.0
      */
-    @NotNull String getSubscriptionName();
+    @Immutable @NotNull Map<String, String> getAttributes();
 
     /**
-     * @return the messageId of this message.
+     * @return an {@link Optional} of the data of this message.
      * @since 4.9.0
      */
-    @NotNull String getMessageId();
+    @NotNull Optional<@Immutable ByteBuffer> getData();
 
     /**
-     * @return the publishTime of this message.
+     * @return an {@link Optional} of the data of this message.
      * @since 4.9.0
      */
-    @NotNull Timestamp getPublishTime();
+    @NotNull Optional<byte[]> getDataAsByteArray();
+
+    /**
+     * @return an {@link Optional} of the orderingKey of this message.
+     * @since 4.9.0
+     */
+    @NotNull Optional<String> getOrderingKey();
 }

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.hivemq.extensions.gcp.pubsub.api.transformers;
+package com.hivemq.extensions.google.cloud.pubsub.api.transformers;
 
 import com.hivemq.extension.sdk.api.annotations.NotNull;
-import com.hivemq.extensions.gcp.pubsub.api.model.OutboundPubSubMessage;
+import com.hivemq.extensions.google.cloud.pubsub.api.model.OutboundPubSubMessage;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import java.util.List;
  * Your implementation of the MqttToPubSubTransformer must be placed in a java archive (.jar) together with all its
  * dependencies in the {@code customizations} folder of the HiveMQ Enterprise Extension for PubSub. In addition, a
  * {@code <mqtt-to-pubsub-transformer>} referencing the implementing class via its canonical name must be configured in
- * the {@code pubsub-extension.xml} file.
+ * the {@code google-cloud-pubsub-configuration.xml} file.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
