@@ -33,13 +33,13 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 public interface PubSubConnection {
 
     /**
-     * @return the configured {@code <id>} of the connection.
+     * @return The configured {@code <id>} of the connection.
      * @since 4.9.0
      */
     @NotNull String getId();
 
     /**
-     * @return the configured {@code <google-cloud-project-id>} of the connection.
+     * @return The configured {@code <google-cloud-project-id>} of the connection.
      * @since 4.9.0
      */
     @NotNull String getProjectId();

@@ -22,15 +22,14 @@ import com.hivemq.extensions.google.cloud.pubsub.api.model.InboundPubSubMessage;
 
 /**
  * Implement this transformer for the programmatic creation of
- * {@link com.hivemq.extension.sdk.api.services.publish.Publish} from
- * {@link InboundPubSubMessage}. One instance of the implementing class is
- * created per reference in the pubsub-configuration.xml. The methods of this interface may be called concurrently and
- * must be thread-safe.
+ * {@link com.hivemq.extension.sdk.api.services.publish.Publish Publishes} from {@link InboundPubSubMessage}s. One
+ * instance of the implementing class is created per reference in the google-cloud-pubsub-configuration.xml. The methods
+ * of this interface may be called concurrently and must be thread-safe.
  * <p>
- * Your implementation of the pubSubToMqttTransformer must be placed in a Java archive (.jar) together with all its
- * dependencies in the {@code customizations} folder of the HiveMQ Enterprise Extension for PubSub. In addition a
- * {@code <pubsub-to-mqtt-transformer>} referencing the implementing class via its canonical name must be configured in
- * the {@code google-cloud-pubsub-configuration.xml} file.
+ * Your implementation of the PubSubToMqttTransformer must be placed in a Java archive (.jar) together with all its
+ * dependencies in the {@code customizations} folder of the "HiveMQ Enterprise Extension for Google Cloud Pub/Sub". In
+ * addition, a {@code <pubsub-to-mqtt-transformer>} referencing the implementing class via its canonical name must be
+ * configured in the {@code google-cloud-pubsub-configuration.xml} file.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -40,19 +39,18 @@ import com.hivemq.extensions.google.cloud.pubsub.api.model.InboundPubSubMessage;
 public interface PubSubToMqttTransformer extends Transformer<PubSubToMqttInitInput> {
 
     /**
-     * This callback is executed for every {@link InboundPubSubMessage} that is
-     * polled by the HiveMQ Enterprise Extension for Google Cloud Pub/Sub and matches the {@code <mqtt-to-pubsub-transformer>} tag
-     * configured in the {@code <mqtt-topic-filters>}. It allows the publication of any number of
+     * This callback is executed for every {@link InboundPubSubMessage} that the "HiveMQ Enterprise Extension for Google
+     * Cloud Pub/Sub" polls from Google Pub/Sub according to the configured {@code <pubsub-subscriptions>}
+     * in the {@code <pubsub-to-mqtt-transformer>} tag. It allows the publication of any number of
      * {@link com.hivemq.extension.sdk.api.services.publish.Publish Publishes} via the {@link PubSubToMqttOutput}
      * object. This method is called by multiple threads concurrently. Extensions are responsible for their own
      * exception handling and this method must not throw any {@link Exception}.
      *
-     * @param pubSubToMqttInput  the {@link PubSubToMqttInput} contains the triggering
-     *                           {@link InboundPubSubMessage}.
-     * @param pubSubToMqttOutput the {@link PubSubToMqttOutput} allows to
-     *                           {@link PubSubToMqttOutput#setPublishes(java.util.List)} provide a list of Publishes. If
-     *                           no {@code pubSubToMqttOutput} is set, an empty List is used as default and the PubSub
-     *                           messages will not be processed again, but ignored.
+     * @param pubSubToMqttInput  The {@link PubSubToMqttInput} contains the triggering {@link InboundPubSubMessage}.
+     * @param pubSubToMqttOutput The {@link PubSubToMqttOutput} allows to
+     *                           {@link PubSubToMqttOutput#setPublishes(java.util.List)}.
+     *                           If no output is set, an empty List is used as default and the PubSub messages will not
+     *                           be processed again, but ignored.
      * @since 4.9.0
      */
     @ThreadSafe

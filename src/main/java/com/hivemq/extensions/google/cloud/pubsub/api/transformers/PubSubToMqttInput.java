@@ -34,7 +34,7 @@ import com.hivemq.extensions.google.cloud.pubsub.api.model.InboundPubSubMessage;
 public interface PubSubToMqttInput {
 
     /**
-     * @return the {@link InboundPubSubMessage} that triggered this transformer call.
+     * @return The {@link InboundPubSubMessage} that triggered this transformer call.
      * @since 4.9.0
      */
     @NotNull InboundPubSubMessage getInboundPubSubMessage();

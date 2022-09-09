@@ -27,11 +27,9 @@ import java.util.List;
  * The output parameter of the {@link MqttToPubSubTransformer}. It allows access to the
  * {@link OutboundPubSubMessageBuilder}.
  * <p>
- * After the {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} method
- * returns
+ * After the {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} method returns
  * the {@link OutboundPubSubMessage}s given to this output will be published to Google Cloud Pub/Sub by the HiveMQ
- * Enterprise
- * Extension for PubSub.
+ * Enterprise Extension for PubSub.
  *
  * @author Florian Limpöck
  * @author Mario Schwede
@@ -44,7 +42,7 @@ public interface MqttToPubSubOutput {
      * Create a new {@link OutboundPubSubMessageBuilder}. One {@link OutboundPubSubMessageBuilder} can be used to build
      * multiple Google Cloud Pub/Sub messages.
      *
-     * @return an empty instance of the {@link OutboundPubSubMessageBuilder}.
+     * @return An empty instance of the {@link OutboundPubSubMessageBuilder}.
      * @since 4.9.0
      */
     @NotNull OutboundPubSubMessageBuilder newOutboundPubSubMessageBuilder();
@@ -52,20 +50,21 @@ public interface MqttToPubSubOutput {
     /**
      * Sets the {@link OutboundPubSubMessage}s, that will be pushed to Google Cloud Pub/Sub after the
      * {@link MqttToPubSubTransformer#transformMqttToPubSub(MqttToPubSubInput, MqttToPubSubOutput)} call returns. The
-     * HiveMQ Enterprise Extension for Google Cloud Pub/Sub will publish the messages in the order provided by the
+     * "HiveMQ Enterprise Extension for Google Cloud Pub/Sub" will publish the messages in the order provided by the
      * {@code outboundPubSubMessages} argument when Google Cloud Pub/Sub ordering is enabled.
      * <p>
      * If desired, the same message can occupy multiple places in the {@code outboundPubSubMessages} list. When no
-     * message shall be pushed to Google Cloud Pub/Sub for a {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}, call
-     * this method with an empty list.
+     * message shall be pushed to Google Cloud Pub/Sub for a given
+     * {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}, provide an empty list or just don't call this
+     * method.
      * <p>
      * Use the {@link OutboundPubSubMessageBuilder} to create new messages as desired.
      * <p>
      * Each additional call of this method will overwrite the previous one.
      *
-     * @param outboundPubSubMessages a list of to be published {@link OutboundPubSubMessage}s.
-     * @throws NullPointerException     if {@code outboundPubSubMessages} or any element of it is null.
-     * @throws IllegalArgumentException if any element in {@code outboundPubSubMessages} was not created via a
+     * @param outboundPubSubMessages A list of to be published {@link OutboundPubSubMessage}s.
+     * @throws NullPointerException     If {@code outboundPubSubMessages} or any element of it is null.
+     * @throws IllegalArgumentException If any element in {@code outboundPubSubMessages} was not created via a
      *                                  {@link OutboundPubSubMessageBuilder}.
      * @since 4.9.0
      */

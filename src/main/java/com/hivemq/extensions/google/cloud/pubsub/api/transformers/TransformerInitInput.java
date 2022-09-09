@@ -38,20 +38,20 @@ public interface TransformerInitInput {
      * Get the {@link MetricRegistry} of this HiveMQ node. It is possible to add own metrics to monitor custom business
      * logic.
      *
-     * @return the {@link MetricRegistry} of the HiveMQ node this Enterprise Extension for Google Cloud Pub/Sub is
+     * @return The {@link MetricRegistry} of the HiveMQ node this "Enterprise Extension for Google Cloud Pub/Sub" is
      *         running on.
      * @since 4.9.0
      */
     @NotNull MetricRegistry getMetricRegistry();
 
     /**
-     * @return the {@link CustomSettings} this transformer is associated with.
+     * @return The {@link CustomSettings} this transformer is associated with.
      * @since 4.9.0
      */
     @NotNull CustomSettings getCustomSettings();
 
     /**
-     * @return the {@link PubSubConnection} this transformer is associated with.
+     * @return The {@link PubSubConnection} this transformer is associated with.
      * @since 4.9.0
      */
     @NotNull PubSubConnection getPubSubConnection();

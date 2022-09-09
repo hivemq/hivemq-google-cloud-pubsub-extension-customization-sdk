@@ -38,7 +38,7 @@ import java.util.List;
 public interface PubSubToMqttOutput {
 
     /**
-     * @return a new {@link PublishBuilder}.
+     * @return A new {@link PublishBuilder}.
      * @since 4.9.0
      */
     @NotNull PublishBuilder newPublishBuilder();
@@ -46,20 +46,20 @@ public interface PubSubToMqttOutput {
     /**
      * Sets the {@link Publish}es, that will be published by HiveMQ after the
      * {@link PubSubToMqttTransformer#transformPubSubToMqtt(PubSubToMqttInput, PubSubToMqttOutput)} call returns. The
-     * HiveMQ Enterprise Extension for Google Cloud Pub/Sub will publish the publishes in the order provided by the {@code publishes}
-     * argument.
+     * "HiveMQ Enterprise Extension for Google Cloud Pub/Sub" will publish the publishes in the order provided by the
+     * {@code publishes} argument.
      * <p>
      * If desired, the same publish can occupy multiple places in the {@code publishes} list. When no publish shall be
-     * published by HiveMQ for a {@link InboundPubSubMessage}, call this method
-     * with an empty list.
+     * published by HiveMQ for a given {@link InboundPubSubMessage}, provide an empty list or just don't call this
+     * method.
      * <p>
      * Use the {@link #newPublishBuilder() PublishBuilder} to create new publishes as desired.
      * <p>
      * Each additional call of this method will overwrite the previous one.
      *
-     * @param publishes a list of to be published {@link Publish}es.
-     * @throws NullPointerException     if {@code publishes} or any element of it is null.
-     * @throws IllegalArgumentException if any element in {@code publishes} was not created via a
+     * @param publishes A list of to be published {@link Publish}es.
+     * @throws NullPointerException     If {@code publishes} or any element of it is null.
+     * @throws IllegalArgumentException If any element in {@code publishes} was not created via a
      *                                  {@link PublishBuilder}.
      * @since 4.9.0
      */

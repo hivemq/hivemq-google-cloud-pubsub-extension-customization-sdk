@@ -42,25 +42,25 @@ import java.util.Optional;
 public interface PubSubMessage {
 
     /**
-     * @return a {@link Map} containing the attributes of this message. The {@link Map} might be empty.
+     * @return A {@link Map} containing the attributes of this message. The {@link Map} might be empty.
      * @since 4.9.0
      */
     @Immutable @NotNull Map<String, String> getAttributes();
 
     /**
-     * @return an {@link Optional} of the data of this message.
+     * @return An {@link Optional} of the data of this message.
      * @since 4.9.0
      */
     @NotNull Optional<@Immutable ByteBuffer> getData();
 
     /**
-     * @return an {@link Optional} of the data of this message.
+     * @return An {@link Optional} of the data of this message.
      * @since 4.9.0
      */
     @NotNull Optional<byte[]> getDataAsByteArray();
 
     /**
-     * @return an {@link Optional} of the orderingKey of this message.
+     * @return An {@link Optional} of the ordering key of this message.
      * @since 4.9.0
      */
     @NotNull Optional<String> getOrderingKey();

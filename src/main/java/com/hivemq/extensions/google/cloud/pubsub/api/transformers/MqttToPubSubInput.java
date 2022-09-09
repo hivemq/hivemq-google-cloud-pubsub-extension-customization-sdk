@@ -34,7 +34,7 @@ import com.hivemq.extension.sdk.api.packets.publish.PublishPacket;
 public interface MqttToPubSubInput {
 
     /**
-     * @return the {@link PublishPacket} that triggered this transformer call.
+     * @return The {@link PublishPacket} that triggered this transformer call.
      * @since 4.9.0
      */
     @NotNull PublishPacket getPublishPacket();

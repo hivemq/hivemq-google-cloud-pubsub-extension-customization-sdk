@@ -22,8 +22,7 @@ import com.hivemq.extensions.google.cloud.pubsub.api.model.OutboundPubSubMessage
 import java.util.List;
 
 /**
- * Implement this transformer for the programmatic creation of
- * {@link OutboundPubSubMessage}s from
+ * Implement this transformer for the programmatic creation of {@link OutboundPubSubMessage}s from
  * {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket}s.
  * <p>
  * Your implementation of the MqttToPubSubTransformer must be placed in a java archive (.jar) together with all its
@@ -40,14 +39,12 @@ public interface MqttToPubSubTransformer extends Transformer<MqttToPubSubInitInp
 
     /**
      * This callback is executed for every MQTT PUBLISH that arrives at your HiveMQ cluster matching the
-     * {@code <mqtt-to-pubsub-transformer>} tag configured in the {@code <mqtt-pubsub-filters>}. It allows the
-     * publication of any number of {@link OutboundPubSubMessage}s via the
-     * {@link MqttToPubSubOutput} object.
+     * {@code <mqtt-pubsub-filters>} tag configured in the {@code <mqtt-to-pubsub-transformer>}. It allows the
+     * publication of any number of {@link OutboundPubSubMessage}s via the {@link MqttToPubSubOutput} object.
      *
-     * @param mqttToPubSubInput  the {@link MqttToPubSubInput} contains the triggering
+     * @param mqttToPubSubInput  The {@link MqttToPubSubInput} contains the triggering
      *                           {@link com.hivemq.extension.sdk.api.packets.publish.PublishPacket} information.
-     * @param mqttToPubSubOutput pass the list of new
-     *                           {@link OutboundPubSubMessage}s to the
+     * @param mqttToPubSubOutput Pass the list of new {@link OutboundPubSubMessage}s to the
      *                           {@link MqttToPubSubOutput#setOutboundPubSubMessages(List)} method.
      * @since 4.9.0
      */

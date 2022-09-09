@@ -32,19 +32,19 @@ import com.hivemq.extension.sdk.api.annotations.Immutable;
 public interface Timestamp {
 
     /**
-     * @return count of seconds from epoch.
+     * @return Count of seconds from epoch.
      * @since 4.9.0
      */
     long getSeconds();
 
     /**
-     * @return fractions of seconds at nanosecond resolution.
+     * @return Fractions of seconds at nanosecond resolution.
      * @since 4.9.0
      */
     int getNanos();
 
     /**
-     * @return count of milliseconds from epoch. The applied conversion truncates, so lose precision.
+     * @return Count of milliseconds from epoch. The applied conversion truncates, so lose precision.
      * @since 4.9.0
      */
     long toMillis();

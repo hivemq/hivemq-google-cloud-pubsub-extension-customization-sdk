@@ -32,9 +32,7 @@ public interface Transformer<I extends TransformerInitInput> {
     /**
      * Use the init method to initialize the transformer.
      *
-     * @param transformerInitInput see the specific transformerInitInput e.g.
-     *                             {@link
-     *                             MqttToPubSubInitInput}.
+     * @param transformerInitInput See the specific transformerInitInput e.g. {@link MqttToPubSubInitInput}.
      * @since 4.9.0
      */
     default void init(final @NotNull I transformerInitInput) {

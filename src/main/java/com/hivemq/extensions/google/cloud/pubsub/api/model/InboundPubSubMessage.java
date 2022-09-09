@@ -34,19 +34,20 @@ import com.hivemq.extension.sdk.api.annotations.NotNull;
 public interface InboundPubSubMessage extends PubSubMessage {
 
     /**
-     * @return the subscriptionName where this message came from.
+     * @return The subscription name where this message came from.
      * @since 4.9.0
      */
     @NotNull String getSubscriptionName();
 
     /**
-     * @return the messageId of this message.
+     * @return The message id of this message.
      * @since 4.9.0
      */
     @NotNull String getMessageId();
 
     /**
-     * @return the publishTime of this message.
+     * @return The publishing time of this message. This timestamp references to the time the PubSub server originally
+     *         received the message.
      * @since 4.9.0
      */
     @NotNull Timestamp getPublishTime();
