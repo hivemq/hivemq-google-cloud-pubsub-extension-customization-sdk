@@ -56,8 +56,6 @@ metadata {
         }
     }
     github {
-        org.set("hivemq")
-        repo.set("hivemq-google-cloud-pubsub-extension-customization-sdk")
         issues()
     }
 }
