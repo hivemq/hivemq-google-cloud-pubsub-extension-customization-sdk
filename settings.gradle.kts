@@ -1,5 +1,3 @@
-rootProject.name = "hivemq-google-cloud-pubsub-extension-customization-sdk"
-
 pluginManagement {
     plugins {
         id("io.github.gradle-nexus.publish-plugin") version "${extra["plugin.nexus-publish.version"]}"
@@ -13,6 +11,8 @@ pluginManagement {
         includeBuild("../hivemq/plugins")
     }
 }
+
+rootProject.name = "hivemq-google-cloud-pubsub-extension-customization-sdk"
 
 if (file("../hivemq-extension-sdk").exists()) {
     includeBuild("../hivemq-extension-sdk")
