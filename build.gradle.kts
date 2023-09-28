@@ -60,8 +60,6 @@ metadata {
     }
 }
 
-/* ******************** dependencies ******************** */
-
 repositories {
     mavenCentral()
 }
