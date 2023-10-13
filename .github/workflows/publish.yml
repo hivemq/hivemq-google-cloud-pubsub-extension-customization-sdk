@@ -9,18 +9,8 @@ jobs:
     environment: mavenCentralPublish
     runs-on: ubuntu-latest
     steps:
-      - name: Configure git
-        env:
-          TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Checkout hivemq-platform
-        run: |
-          git clone https://github.com/hivemq/hivemq-platform.git ../hivemq-platform
-          cd ../hivemq-platform
-          git checkout "${GITHUB_REF##*/}" || true
-          cd ../hivemq-google-cloud-pubsub-extension-customization-sdk
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
