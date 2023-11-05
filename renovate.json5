@@ -9,5 +9,5 @@
         "renovate-playground"
     ],
     "useBaseBranchConfig": "merge",
-    "branchPrefix": "renovate/hpssdk_"
+    "branchPrefix": "renovate/hivemq-google-cloud-pubsub-extension-customization-sdk/"
 }
