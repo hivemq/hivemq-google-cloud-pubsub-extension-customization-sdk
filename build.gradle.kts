@@ -25,34 +25,34 @@ group = "com.hivemq"
 description = "SDK for the development of HiveMQ Google Cloud Pub/Sub Extension customizations"
 
 metadata {
-    readableName.set("HiveMQ Google Cloud Pub/Sub Extension Customization SDK")
+    readableName = "HiveMQ Google Cloud Pub/Sub Extension Customization SDK"
     organization {
-        name.set("HiveMQ GmbH")
-        url.set("https://www.hivemq.com/")
+        name = "HiveMQ GmbH"
+        url = "https://www.hivemq.com/"
     }
     license {
         apache2()
     }
     developers {
         register("hurtadosanti") {
-            fullName.set("Santiago Hurtado")
-            email.set("santiago.hurtado@hivemq.com")
+            fullName = "Santiago Hurtado"
+            email = "santiago.hurtado@hivemq.com"
         }
         register("Donnerbart") {
-            fullName.set("David Sondermann")
-            email.set("david.sondermann@hivemq.com")
+            fullName = "David Sondermann"
+            email = "david.sondermann@hivemq.com"
         }
         register("YannickWeber") {
-            fullName.set("Yannick Weber")
-            email.set("yannick.weber@hivemq.com")
+            fullName = "Yannick Weber"
+            email = "yannick.weber@hivemq.com"
         }
         register("Florian-Limpoeck") {
-            fullName.set("Florian Limpöck")
-            email.set("florian.limpoeck@hivemq.com")
+            fullName = "Florian Limpöck"
+            email = "florian.limpoeck@hivemq.com"
         }
         register("mario-schwede-hivemq") {
-            fullName.set("Mario Schwede")
-            email.set("mario.schwede@hivemq.com")
+            fullName = "Mario Schwede"
+            email = "mario.schwede@hivemq.com"
         }
     }
     github {
@@ -73,7 +73,7 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion = JavaLanguageVersion.of(11)
     }
     withJavadocJar()
     withSourcesJar()
