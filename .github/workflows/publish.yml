@@ -15,7 +15,9 @@ jobs:
         uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: temurin
-          java-version: 21
+          java-version: |
+            21
+            25
       - name: Check
         run: ./gradlew check
       - name: Publish to Maven Central
